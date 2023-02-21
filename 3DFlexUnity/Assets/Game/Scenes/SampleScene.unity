@@ -412,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pelvis (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5785661938920640857, guid: 0bf0399358bdc96409e11848aa569d28, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5785661940185841485, guid: 0bf0399358bdc96409e11848aa569d28, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.18
@@ -3716,7 +3720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 781153474879631047, guid: c5de4c8678525e740b1c48d13257c99a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.04
+      value: 9.08
       objectReference: {fileID: 0}
     - target: {fileID: 781153474879631047, guid: c5de4c8678525e740b1c48d13257c99a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3724,7 +3728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 781153474879631047, guid: c5de4c8678525e740b1c48d13257c99a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.13
+      value: 14.12
       objectReference: {fileID: 0}
     - target: {fileID: 781153474879631047, guid: c5de4c8678525e740b1c48d13257c99a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3915,10 +3919,6 @@ PrefabInstance:
     - target: {fileID: 1216678006590487251, guid: 31a015d4556107648ba5b7ea7e0d2162, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2303237333580846218, guid: 31a015d4556107648ba5b7ea7e0d2162, type: 3}
-      propertyPath: m_SlerpDrive.positionSpring
-      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 4659060478415112276, guid: 31a015d4556107648ba5b7ea7e0d2162, type: 3}
       propertyPath: target

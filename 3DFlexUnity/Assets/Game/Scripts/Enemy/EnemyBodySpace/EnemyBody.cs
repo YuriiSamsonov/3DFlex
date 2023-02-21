@@ -25,18 +25,13 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
 
         private int _currentHp;
         private Color _currentColor;
+        private readonly JointDrive _jointSpring = new(){ positionSpring = 0f, positionDamper = 0f };
 
         private void Start()
         {
             renderer = GetComponent<Renderer>();
             _currentColor = renderer.material.color;
             _currentHp = maxHp;
-
-            for (int i = 0; i < objectsToDestroy.Length; i++)
-            {
-                JointDrive spring = objectsToDestroy[i].GetComponent<ConfigurableJoint>().slerpDrive;
-                spring.positionSpring = 10000f;
-            }                
         }
 
         public void OnHit(int damage)
@@ -51,7 +46,8 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
                 for (int i = 0; i < objectsToDestroy.Length; i++)
                 {
                     Destroy(objectsToDestroy[i].GetComponent<PhysicalBodyPart>());
-                    Destroy(objectsToDestroy[i].GetComponent<ConfigurableJoint>());
+                    objectsToDestroy[i].GetComponent<ConfigurableJoint>().slerpDrive = _jointSpring;
+                    
                     Destroy(objectsToDestroy[i].GetComponent<EnemyBody>());
                 }
                 Destroy(jointObject.GetComponent<PhysicalBodyPart>());
