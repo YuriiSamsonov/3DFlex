@@ -2,61 +2,60 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b96d72fc-6d48-4654-9cfe-1d7adc3d116a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Objects.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Objects/GrabableObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Objects/GrabableObject.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/MouseLook.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/MouseLook.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PickUpController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PickUpController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PlayerMovement.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PlayerMovement.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Animation.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Animation/PelvisAnimated.controller" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Animation/PelvisAnimated.controller.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Animation/Walk animation.anim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Animation/Walk animation.anim.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Enemy.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Enemy.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Yellow.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Yellow.mat.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/BrokenCup_01.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/BrokenCup_01.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/Animation.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/Animation.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/NormalFriction.physicMaterial" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/NormalFriction.physicMaterial.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/Pelvis.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/Pelvis.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/PelvisWithErrors.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/PelvisWithErrors.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/ZeroFriction.physicMaterial" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/ZeroFriction.physicMaterial.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/AnimateFriction.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/AnimateFriction.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/DirectionController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/DirectionController.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyArm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyArm.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyBody.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyBody.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyHead.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyHead.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyLeg.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyLeg.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/IgnoreCollision.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/IgnoreCollision.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/PhysicalBodyPart.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/PhysicalBodyPart.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_02_2023_12_26__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_02_2023_12_26__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Update_at_18_02_2023_12_25__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Update_at_18_02_2023_12_25__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Update_at_18_02_2023_12_27__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Update_at_18_02_2023_12_27__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Data.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup01_Handle.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup01_Handle.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup01_Part01.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup01_Part01.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup01_Part02.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup01_Part02.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup01_Part03.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup01_Part03.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup01_Part04.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup01_Part04.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup_01.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Cup_01.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Tex_01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/Blender/Tex_01.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/MainGloss_01.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Graphics/MainGloss_01.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup01_Handle.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup01_Handle.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup01_Part01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup01_Part01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup01_Part02.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup01_Part02.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup01_Part03.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup01_Part03.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup01_Part04.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup01_Part04.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup_01.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Prefabs/Cup_01/Cup_01.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Scripts/NewBehaviourScript.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Scripts/NewBehaviourScript.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game/Sound.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup01_Handle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup01_Handle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup01_Part01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup01_Part01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup01_Part02.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup01_Part02.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup01_Part03.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup01_Part03.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup01_Part04.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup01_Part04.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/Cup_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Objects/GrabableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Objects/GrabableObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/MouseLook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PickUpController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PickUpController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,6 +84,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
@@ -148,6 +148,8 @@
       <workItem from="1676675843181" duration="179000" />
       <workItem from="1676714517644" duration="42000" />
       <workItem from="1676792338712" duration="9968000" />
+      <workItem from="1676885642866" duration="19320000" />
+      <workItem from="1676966188114" duration="15988000" />
     </task>
     <task id="LOCAL-00001" summary="Unity created">
       <created>1676675583076</created>
@@ -196,12 +198,14 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Unity created" />
     <MESSAGE value="s2" />
-    <option name="LAST_COMMIT_MESSAGE" value="s2" />
+    <MESSAGE value="added throwing" />
+    <option name="LAST_COMMIT_MESSAGE" value="added throwing" />
   </component>
 </project>

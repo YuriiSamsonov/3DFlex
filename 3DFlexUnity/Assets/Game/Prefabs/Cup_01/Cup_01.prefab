@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 8052398873539168420}
   - component: {fileID: 5213806439820049518}
   - component: {fileID: 6889026340065562473}
-  - component: {fileID: 2699134882179152006}
   - component: {fileID: 7066344269261870334}
+  - component: {fileID: 8612890917784543061}
   m_Layer: 7
   m_Name: Cup_01
-  m_TagString: Untagged
+  m_TagString: PickUpAble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,20 +101,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &2699134882179152006
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6006628884860214715}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.92, y: 3.9195814, z: 3.1316805}
-  m_Center: {x: -0.4878472, y: 0.34584928, z: 0}
+  m_CollisionDetection: 2
 --- !u!114 &7066344269261870334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,3 +115,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rBody: {fileID: 6889026340065562473}
+  brokenCup: {fileID: 3517455698292033323, guid: ee31aabe4b512fc46ac7dce6bc0e7ac9, type: 3}
+  spawnPoint: {fileID: 0}
+  damage: 10
+--- !u!64 &8612890917784543061
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6006628884860214715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8571224412701284231, guid: dd85580b6b70aa74e8bc8c64f089d25d, type: 3}

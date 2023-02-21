@@ -10,8 +10,8 @@ namespace Game.Scripts.PlayerSpace
         [field: SerializeField] 
         private Transform playerBody;
 
-        private float xRotation = 0f;
-        float clock = 0f;
+        private float xRotation;
+        float clock;
 
         private void Start()
         {

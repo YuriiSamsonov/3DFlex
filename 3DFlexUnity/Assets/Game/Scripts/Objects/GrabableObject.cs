@@ -1,3 +1,7 @@
+using System;
+using System.Collections;
+using Game.Scripts.Enemy;
+using Game.Scripts.Enemy.EnemyBodySpace;
 using UnityEngine;
 
 namespace Game.Scripts.Objects
@@ -6,11 +10,25 @@ namespace Game.Scripts.Objects
     {
         [field: SerializeField] 
         private Rigidbody rBody;
+        
+        [field: SerializeField] 
+        private GameObject brokenCup;
+        
+        [field: SerializeField] 
+        private Transform spawnPoint;
+        
+        [field: SerializeField] 
+        private int damage = 10;
 
         public Rigidbody RBody => rBody;
 
         private Transform _objInHandTransform;
-        private float lerpSpeed = 20f;
+        private Vector3 _lastPos;
+        private Quaternion _lastRot;
+
+        private bool _inHand;
+
+        private readonly float _lerpSpeed = 20f;
 
         private void Reset()
         {
@@ -21,8 +39,8 @@ namespace Game.Scripts.Objects
         {
             _objInHandTransform = handTransform;
             rBody.drag = 5f;
-            rBody.useGravity = false;
-            _objInHandTransform.localRotation = new Quaternion(0,0,0,0);
+            rBody.useGravity = false; 
+            rBody.constraints = RigidbodyConstraints.FreezeRotation;
         }
 
         public void Drop()
@@ -30,16 +48,56 @@ namespace Game.Scripts.Objects
             _objInHandTransform = null;
             rBody.drag = 0f;
             rBody.useGravity = true;
+            rBody.constraints = RigidbodyConstraints.None;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (_objInHandTransform != null)
             {
-                var moveLerp = Vector3.Lerp(transform.position, _objInHandTransform.position, Time.deltaTime * lerpSpeed);
-                rBody.MovePosition(moveLerp);
+                var moveLerp = 
+                    Vector3.Lerp(transform.position, 
+                    _objInHandTransform.position, 
+                    Time.deltaTime * _lerpSpeed);
                 
-            } 
+                rBody.MovePosition(moveLerp);
+            }
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (rBody.velocity.magnitude > 2.5f && !_inHand)
+            {
+                var newBrokenCup = Instantiate(brokenCup);
+                
+                newBrokenCup.transform.position = transform.position;
+                newBrokenCup.transform.rotation = transform.rotation;
+                
+                rBody.velocity = new Vector3(0,0,0);
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+                
+                transform.position = spawnPoint.position;
+
+                StartCoroutine(DestroyTrash(newBrokenCup));
+
+                var enemy = collision.collider.GetComponent<EnemyBody>();
+
+                if (enemy)
+                {
+                    enemy.OnHit(damage);
+                }
+            }
+        }
+
+        public void InHandState(bool state)
+        {
+            _inHand = state;
+        }
+
+        private IEnumerator DestroyTrash(GameObject gameObject)
+        {
+            yield return new WaitForSeconds(30);
+            gameObject.SetActive(false);
         }
     }
 }

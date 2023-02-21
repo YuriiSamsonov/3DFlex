@@ -16,7 +16,7 @@ namespace Game.Scripts.PlayerSpace
         private LayerMask pickUpLayerMask;
         
         [field: SerializeField] 
-        private float pickUpDistance = 2f;
+        private float pickUpDistance = 100f;
         
         [field: SerializeField] 
         private float throwDistance;
@@ -24,39 +24,66 @@ namespace Game.Scripts.PlayerSpace
         private GrabableObject _objectInHand;
         private Rigidbody _objectInHandBody;
 
+        private RaycastHit[] _rayHits = new RaycastHit[1];
+
+        private bool _holdingItem;
+        private bool _foundCup;
+
+        private void FixedUpdate()
+        {
+            if (_holdingItem && Input.GetKey(KeyCode.Mouse0))
+            {
+                OnThrowButton();
+            }
+        }
+
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            _foundCup = TryCastForCup(cameraTransform.position, cameraTransform.forward);
+            
+            if (!_holdingItem && Input.GetKeyDown(KeyCode.E))
             {
-                if (_objectInHand == null)
+                if (_foundCup)
                 {
-                    Physics.Raycast(cameraTransform.position, 
-                        cameraTransform.forward, 
-                        out RaycastHit raycastHit, 
-                        pickUpDistance,
-                        pickUpLayerMask);
-
-                    if (raycastHit.transform != null && raycastHit.transform.TryGetComponent(out GrabableObject grabableObject))
-                    {
-                        _objectInHand = grabableObject;
-                        _objectInHand.Grab(hand);
-                        _objectInHandBody = grabableObject.RBody;
-                    }
+                    _objectInHand = _rayHits[0].collider.GetComponent<GrabableObject>();
+                    _objectInHand.Grab(hand);
+                    _objectInHand.InHandState(true);
+                    _objectInHandBody = _objectInHand.RBody;
+                    _holdingItem = true;
+                    return;
                 }
-                else
-
-                {
-                    _objectInHand.Drop();
-                    _objectInHandBody.velocity = cameraTransform.forward * (throwDistance * 10 * Time.deltaTime);
-                    _objectInHand = null;
-                }
-
             }
             
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if(_holdingItem && Input.GetKeyDown(KeyCode.E))
             {
-                
+                _objectInHand.Drop();
+                _objectInHand.InHandState(false);
+                _holdingItem = false;
             }
+        }
+
+        private void OnThrowButton()
+        {
+            _objectInHand.Drop();
+            _objectInHand.InHandState(false);
+            ThrowObjectInHand();
+            _objectInHandBody = null;
+            _holdingItem = false;
+        }
+
+        private void ThrowObjectInHand()
+        {
+            _objectInHandBody.velocity = cameraTransform.forward * (throwDistance * 10 * Time.deltaTime);
+        }
+
+        private bool TryCastForCup(Vector3 startPos, Vector3 dir)
+        {
+            var hits = Physics.RaycastNonAlloc(startPos, dir, 
+                _rayHits, 
+                pickUpDistance, 
+                pickUpLayerMask);
+
+            return hits > 0;
         }
     }
 }
