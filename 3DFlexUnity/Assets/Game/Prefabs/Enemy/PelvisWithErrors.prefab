@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 1216678004951472954}
   - component: {fileID: 1216678004951472953}
   - component: {fileID: 4659060479442339938}
+  - component: {fileID: 5785661939545718013}
   m_Layer: 0
-  m_Name: Cube LeftLeg
-  m_TagString: Untagged
+  m_Name: Cube_LeftLeg
+  m_TagString: EnemyLeg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +115,21 @@ MonoBehaviour:
   allColliders:
   - {fileID: 1216678005580180050}
   - {fileID: 1216678004951472953}
+--- !u!114 &5785661939545718013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216678004951472959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c475af46654e04a910a6f78f98462e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 50
+  jointObject: {fileID: 1216678005062016436}
+  legRenderer: {fileID: 1216678004951472954}
 --- !u!1 &1216678005000596212
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +744,7 @@ ConfigurableJoint:
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
     serializedVersion: 3
-    positionSpring: 100
+    positionSpring: 100000000
     positionDamper: 100
     maximumForce: 3.4028233e+38
   m_ProjectionMode: 0
@@ -767,6 +783,7 @@ GameObject:
   - component: {fileID: 1216678005573801154}
   - component: {fileID: 1216678005573801153}
   - component: {fileID: 1216678005573801152}
+  - component: {fileID: 5785661939970913040}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -852,6 +869,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5785661939970913040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216678005573801158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8055058b2c7a48da8927c3ae67d09674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 40
+  jointObject: {fileID: 1216678005062016436}
+  controller: {fileID: 0}
+  renderer: {fileID: 1216678005573801153}
+  objectsToDestroy: []
 --- !u!1 &1216678005580180048
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,9 +898,10 @@ GameObject:
   - component: {fileID: 1216678005580180044}
   - component: {fileID: 1216678005580180051}
   - component: {fileID: 1216678005580180050}
+  - component: {fileID: 5785661939972853156}
   m_Layer: 0
-  m_Name: Cube ArmLeft
-  m_TagString: Untagged
+  m_Name: Cube_ArmLeft
+  m_TagString: EnemyArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -949,6 +984,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5785661939972853156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216678005580180048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c3379980e24e0a9933e99c17cb37ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 50
+  jointObject: {fileID: 1216678006004620038}
+  armRenderer: {fileID: 1216678005580180051}
 --- !u!1 &1216678005688286904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,9 +1171,10 @@ GameObject:
   - component: {fileID: 1216678005870094824}
   - component: {fileID: 1216678005870094831}
   - component: {fileID: 1216678005870094830}
+  - component: {fileID: 5785661939725995564}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Cube_ArmRight
+  m_TagString: EnemyArm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1206,6 +1257,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5785661939725995564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216678005870094828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38c3379980e24e0a9933e99c17cb37ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 20
+  jointObject: {fileID: 1216678005688286904}
+  armRenderer: {fileID: 1216678005870094831}
 --- !u!1 &1216678005932767974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1218,10 +1284,10 @@ GameObject:
   - component: {fileID: 1216678005932767970}
   - component: {fileID: 1216678005932767969}
   - component: {fileID: 1216678005932767968}
-  - component: {fileID: 4659060479942821548}
+  - component: {fileID: 1606643423}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: EnemyHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1304,7 +1370,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4659060479942821548
+--- !u!114 &1606643423
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1313,25 +1379,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1216678005932767974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8055058b2c7a48da8927c3ae67d09674, type: 3}
+  m_Script: {fileID: 11500000, guid: 409d1f8da8a244c0ab387309b1e48b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 20
-  bodyCollider: {fileID: 1216678005932767968}
+  maxHp: 50
   jointObject: {fileID: 1216678005491788729}
-  controller: {fileID: 0}
-  opositeLeg: {fileID: 0}
-  pelvisForLeg: {fileID: 0}
-  renderer: {fileID: 1216678005932767969}
-  objectsToDestroy:
-  - {fileID: 1216678006590487251}
-  - {fileID: 1216678005062016436}
-  - {fileID: 1216678005000596212}
-  - {fileID: 1216678005041727122}
-  - {fileID: 1216678006106280381}
-  - {fileID: 1216678005688286904}
-  - {fileID: 1216678006004620038}
-  - {fileID: 4659060478684304181}
+  headRenderer: {fileID: 1216678005932767969}
 --- !u!1 &1216678006004620038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,7 +1398,7 @@ GameObject:
   - component: {fileID: 1216678006004620032}
   - component: {fileID: 4659060478415112276}
   m_Layer: 0
-  m_Name: Arm_Left228
+  m_Name: Arm_Left
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1667,6 +1720,7 @@ GameObject:
   - component: {fileID: 1216678006232773472}
   - component: {fileID: 1216678006232773479}
   - component: {fileID: 1216678006232773478}
+  - component: {fileID: 5785661938415408304}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1752,6 +1806,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5785661938415408304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216678006232773476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8055058b2c7a48da8927c3ae67d09674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 40
+  jointObject: {fileID: 1216678005000596212}
+  controller: {fileID: 0}
+  renderer: {fileID: 1216678006232773479}
+  objectsToDestroy: []
 --- !u!1 &1216678006267387418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,10 +1835,10 @@ GameObject:
   - component: {fileID: 1216678006267387414}
   - component: {fileID: 1216678006267387413}
   - component: {fileID: 1216678006267387412}
-  - component: {fileID: 4659060480202072027}
+  - component: {fileID: 376504863}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Cube(Pelvis)
+  m_TagString: EnemyPelvis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1850,7 +1921,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4659060480202072027
+--- !u!114 &376504863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1859,22 +1930,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1216678006267387418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8055058b2c7a48da8927c3ae67d09674, type: 3}
+  m_Script: {fileID: 11500000, guid: b926706c0f1e491ab4aac3186cabc0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10
-  bodyCollider: {fileID: 1216678006267387412}
-  jointObject: {fileID: 1216678005041727122}
-  controller: {fileID: 0}
-  opositeLeg: {fileID: 0}
-  pelvisForLeg: {fileID: 0}
-  renderer: {fileID: 1216678006267387413}
-  objectsToDestroy:
-  - {fileID: 1216678006590487251}
+  maxHp: 50
+  jointsToDestroy:
+  - {fileID: 1216678005041727117}
+  - {fileID: 1216678006106280376}
+  partsToDestroyMovement:
+  - {fileID: 4659060479522929062}
+  - {fileID: 4659060479620124390}
+  partsToKill:
   - {fileID: 1216678005062016436}
   - {fileID: 1216678005000596212}
-  - {fileID: 1216678005041727122}
-  - {fileID: 4659060478684304181}
+  pelvisRenderer:
+  - {fileID: 1216678006270692453}
+  - {fileID: 1216678006267387413}
 --- !u!1 &1216678006270692458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,7 +1957,6 @@ GameObject:
   - component: {fileID: 1216678006270692459}
   - component: {fileID: 1216678006270692454}
   - component: {fileID: 1216678006270692453}
-  - component: {fileID: 1216678006270692452}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1959,19 +2029,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1216678006270692452
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216678006270692458}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1216678006590487251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,7 +2055,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216678006590487251}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.16, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 0
@@ -2177,9 +2234,10 @@ GameObject:
   - component: {fileID: 1216678006750611949}
   - component: {fileID: 1216678006750611948}
   - component: {fileID: 1216678006750611955}
+  - component: {fileID: 5785661938928315971}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: EnemyChest
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2262,6 +2320,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5785661938928315971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216678006750611953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7f01e7dcb24668aff189b9b0d88038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 50
+  jointObject: {fileID: 1216678006106280381}
+  chestRenderer: {fileID: 1216678006750611948}
 --- !u!1 &1216678006870480647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2275,9 +2348,10 @@ GameObject:
   - component: {fileID: 1216678006870480642}
   - component: {fileID: 1216678006870480641}
   - component: {fileID: 4659060479280972906}
+  - component: {fileID: 5785661938851442901}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: Cube_RightLeg
+  m_TagString: EnemyLeg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2376,6 +2450,21 @@ MonoBehaviour:
   allColliders:
   - {fileID: 1216678005870094830}
   - {fileID: 1216678006870480641}
+--- !u!114 &5785661938851442901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216678006870480647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89c475af46654e04a910a6f78f98462e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 50
+  jointObject: {fileID: 1216678005000596212}
+  legRenderer: {fileID: 1216678006870480642}
 --- !u!1 &4659060478684304181
 GameObject:
   m_ObjectHideFlags: 0

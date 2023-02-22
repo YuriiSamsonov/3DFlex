@@ -1,8 +1,5 @@
-using System;
 using System.Collections;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Scripts.Enemy.EnemyBodySpace
 {
@@ -27,9 +24,8 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
         private Color _currentColor;
         private readonly JointDrive _jointSpring = new(){ positionSpring = 0f, positionDamper = 0f };
 
-        private void Start()
+        private void Awake()
         {
-            renderer = GetComponent<Renderer>();
             _currentColor = renderer.material.color;
             _currentHp = maxHp;
         }

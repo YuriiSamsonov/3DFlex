@@ -5,7 +5,7 @@ namespace Game.Scripts.PlayerSpace
     public class MouseLook : MonoBehaviour
     {
         [field: SerializeField] 
-        private float mouseSensitivity = 600f;
+        private float mouseSensitivity = 100f;
 
         [field: SerializeField] 
         private Transform playerBody;

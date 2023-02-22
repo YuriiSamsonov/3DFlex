@@ -6,6 +6,11 @@ TagManager:
   tags:
   - PickUpAble
   - Enemy
+  - EnemyArm
+  - EnemyLeg
+  - EnemyHead
+  - EnemyPelvis
+  - EnemyChest
   layers:
   - Default
   - TransparentFX

@@ -19,7 +19,8 @@ namespace Game.Scripts.Enemy
 
         private void FixedUpdate()
         {
-            _joint.targetRotation = Quaternion.Inverse(target.localRotation) * _startRotation;
+            if (target != null)
+                _joint.targetRotation = Quaternion.Inverse(target.localRotation) * _startRotation;
         }
 
         public void RemoveTarget()

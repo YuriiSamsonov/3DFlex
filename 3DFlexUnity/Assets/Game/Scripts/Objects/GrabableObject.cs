@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using Game.Scripts.Enemy;
 using Game.Scripts.Enemy.EnemyBodySpace;
 using UnityEngine;
 
@@ -28,7 +26,7 @@ namespace Game.Scripts.Objects
 
         private bool _inHand;
 
-        private readonly float _lerpSpeed = 20f;
+        private readonly float _lerpSpeed = 10f;
 
         private void Reset()
         {
@@ -85,6 +83,28 @@ namespace Game.Scripts.Objects
                 if (enemy)
                 {
                     enemy.OnHit(damage);
+                }
+
+                switch (collision.collider.tag)
+                {
+                    case "EnemyArm":
+                        collision.collider.GetComponent<EnemyArm>().OnHit(damage);
+                        break;
+                    case "EnemyHead":
+                        collision.collider.GetComponent<EnemyHead>().OnHit(damage);
+                        break;
+                    case "EnemyLeg":
+                        if (collision.collider.GetComponent<EnemyLeg>())
+                            collision.collider.GetComponent<EnemyLeg>().OnHit(damage);
+                        else
+                            collision.collider.GetComponentInParent<EnemyLeg>().OnHit(damage); //bug
+                        break;
+                    case "EnemyChest":
+                        collision.collider.GetComponent<EnemyChest>().OnHit(damage);
+                        break;
+                    case "EnemyPelvis":
+                        collision.collider.GetComponent<EnemyPelvis>().OnHit(damage);
+                        break;
                 }
             }
         }
