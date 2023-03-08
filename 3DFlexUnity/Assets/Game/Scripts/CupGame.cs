@@ -5,6 +5,7 @@ namespace Game.Scripts
 {
     public class CupGame : MonoBehaviour
     {
+        
         #region SceneReferences
 
         [field: SerializeField] 

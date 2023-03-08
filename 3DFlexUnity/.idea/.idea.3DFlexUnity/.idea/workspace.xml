@@ -1,57 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b96d72fc-6d48-4654-9cfe-1d7adc3d116a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_02_2023_12_26_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Checkout_at_18_02_2023_12_26__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Update_at_18_02_2023_12_25_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Update_at_18_02_2023_12_25__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Update_at_18_02_2023_12_27_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/shelf/Uncommitted_changes_before_Update_at_18_02_2023_12_27__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup01_Handle.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup01_Handle.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup01_Part01.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup01_Part01.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup01_Part02.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup01_Part02.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup01_Part03.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup01_Part03.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup01_Part04.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup01_Part04.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup_01.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Cup_01.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Tex_01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Blender/Tex_01.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Enemy.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Enemy.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/BrokenCup_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Cup_01/BrokenCup_01.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/Pelvis.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/Pelvis.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/PelvisWithErrors.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/PelvisWithErrors.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/FirstPersonPlayer.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/FirstPersonPlayer.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/AnimateFriction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/AnimateFriction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/DirectionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/DirectionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/DebugEnemy.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/DebugEnemy.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyArm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyArm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyBody.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyBody.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyChest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyChest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyHead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyHead.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyLeg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyLeg.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyPelvis.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyPelvis.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/PhysicalBodyPart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/PhysicalBodyPart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/FPS.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/FPS.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Objects/GrabableObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Objects/GrabableObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/VFXManager.asset" afterDir="false" />
+    <list default="true" id="b96d72fc-6d48-4654-9cfe-1d7adc3d116a" name="Changes" comment="pc commit">
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CupGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CupGame.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +19,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://D:/Git/3DFlex/3DFlexUnity/Assets/Game/Graphics/Blender/Cup01_Handle.fbx.meta" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Git/3DFlex/3DFlexUnity/Assets/Game/Scripts/Enemy/AnimateFriction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Git/3DFlex/3DFlexUnity/Assets/Game/Scripts/Enemy/AnimateFriction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Git/3DFlex/3DFlexUnity/Assets/Game/Scripts/Enemy/AnimateFriction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Git/3DFlex/3DFlexUnity/Assets/Game/Scripts/Enemy/AnimateFriction.cs" root0="SKIP_HIGHLIGHTING" />
@@ -236,6 +188,8 @@
     <MESSAGE value="added throwing" />
     <MESSAGE value="Created damageable ragdoll" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="sound deleted" />
+    <MESSAGE value="pc commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="pc commit" />
   </component>
 </project>
