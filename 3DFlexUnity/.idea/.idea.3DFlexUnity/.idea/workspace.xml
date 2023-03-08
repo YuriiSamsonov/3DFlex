@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b96d72fc-6d48-4654-9cfe-1d7adc3d116a" name="Changes" comment="pc commit">
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/CupGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/CupGame.cs" afterDir="false" />
-    </list>
+    <list default="true" id="b96d72fc-6d48-4654-9cfe-1d7adc3d116a" name="Changes" comment="pc commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="develop" />
       </map>
     </option>
     <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/Git/3DFlex/3DFlexUnity/Assets/Game/Graphics/Blender/Cup01_Handle.fbx.meta" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Git/3DFlex/3DFlexUnity/Assets/Game/Scripts/Enemy/AnimateFriction.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Git/3DFlex/3DFlexUnity/Assets/Game/Scripts/Enemy/AnimateFriction.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Git/3DFlex/3DFlexUnity/Assets/Game/Scripts/Enemy/AnimateFriction.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Git/3DFlex/3DFlexUnity/Assets/Game/Scripts/Enemy/AnimateFriction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Git/3DFlex/3DFlexUnity/Assets/Game/Scripts/CupGame.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,7 +57,7 @@
       <method v="2" />
     </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2021.3.15f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="EXE_PATH" value="D:\Unity\Files\Installs\2021.3.15f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\Git\3DFlex\3DFlexUnity\3DFlexUnity -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Git\3DFlex\3DFlexUnity\3DFlexUnity" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -145,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676999019308</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="pc commit">
+      <created>1678275739623</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678275739623</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
