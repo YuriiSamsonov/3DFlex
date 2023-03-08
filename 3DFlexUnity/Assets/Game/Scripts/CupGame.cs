@@ -5,6 +5,8 @@ namespace Game.Scripts
 {
     public class CupGame : MonoBehaviour
     {
+        //mac
+        
         #region SceneReferences
 
         [field: SerializeField] 
@@ -13,7 +15,7 @@ namespace Game.Scripts
         #endregion
 
         #region ScriptableObjects
-
+        
         
 
         #endregion
