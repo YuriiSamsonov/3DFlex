@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Game.Scripts.Utils;
 using UnityEngine;
 
 namespace Game.Scripts.Enemy.EnemyBodySpace
@@ -21,6 +23,8 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
         private Color _currentColor;
         private readonly JointDrive _jointSpring = new(){ positionSpring = 0f, positionDamper = 0f };
         
+        public event Event<EventArgs> EnemyDeadEvent;
+        
         private void Awake()
         {
             _currentColor = pelvisRenderer[0].material.color;
@@ -39,6 +43,8 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
 
             if (_currentHp <= 0)
             {
+                EnemyDeadEvent(EventArgs.Empty);
+
                 for (int i = 0; i < jointsToDestroy.Length; i++)
                 {
                     if (jointsToDestroy[i].GetComponent<ConfigurableJoint>())

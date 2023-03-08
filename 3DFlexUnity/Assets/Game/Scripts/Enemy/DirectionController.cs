@@ -1,4 +1,5 @@
 using System;
+using Game.Scripts.PlayerSpace;
 using UnityEngine;
 
 namespace Game.Scripts.Enemy
@@ -13,6 +14,11 @@ namespace Game.Scripts.Enemy
         
         [field: SerializeField] 
         private Transform pelvisTransform;
+
+        private void Start()
+        {
+            target = FindObjectOfType<PlayerMono>().transform;
+        }
 
         private void FixedUpdate()
         {

@@ -8,6 +8,7 @@ namespace Game.Scripts.Objects
     {
         [field: SerializeField] 
         private Rigidbody rBody;
+        public Rigidbody RBody => rBody;
         
         [field: SerializeField] 
         private GameObject brokenCup;
@@ -18,7 +19,10 @@ namespace Game.Scripts.Objects
         [field: SerializeField] 
         private int damage = 10;
 
-        public Rigidbody RBody => rBody;
+        [field: SerializeField] 
+        private MainMenu mainMenu;
+        
+        private Renderer _cupRenderer;
 
         private Transform _objInHandTransform;
         private Vector3 _lastPos;
@@ -26,11 +30,17 @@ namespace Game.Scripts.Objects
 
         private bool _inHand;
 
-        private readonly float _lerpSpeed = 10f;
+        private readonly float _lerpSpeed = 20f;
 
         private void Reset()
         {
             rBody = GetComponent<Rigidbody>();
+        }
+        
+        private void Start()
+        {
+            _cupRenderer = GetComponent<Renderer>();
+            _cupRenderer.material.mainTexture = mainMenu.CupTexture[MainMenu.CurrentTexture];
         }
 
         public void Grab(Transform handTransform)
@@ -49,7 +59,7 @@ namespace Game.Scripts.Objects
             rBody.constraints = RigidbodyConstraints.None;
         }
 
-        private void FixedUpdate()
+        private void LateUpdate()
         {
             if (_objInHandTransform != null)
             {
@@ -59,6 +69,21 @@ namespace Game.Scripts.Objects
                     Time.deltaTime * _lerpSpeed);
                 
                 rBody.MovePosition(moveLerp);
+            }
+
+            if (Vector3.Distance(spawnPoint.position, transform.position) > 100)
+            {
+                var newBrokenCup = Instantiate(brokenCup);
+                
+                newBrokenCup.transform.position = transform.position;
+                newBrokenCup.transform.rotation = transform.rotation;
+                
+                rBody.velocity = new Vector3(0,0,0);
+                transform.rotation = new Quaternion(0, 0, 0, 0);
+                
+                transform.position = spawnPoint.position;
+
+                StartCoroutine(DestroyTrash(newBrokenCup));
             }
         }
 
@@ -77,13 +102,6 @@ namespace Game.Scripts.Objects
                 transform.position = spawnPoint.position;
 
                 StartCoroutine(DestroyTrash(newBrokenCup));
-
-                var enemy = collision.collider.GetComponent<EnemyBody>();
-
-                if (enemy)
-                {
-                    enemy.OnHit(damage);
-                }
 
                 switch (collision.collider.tag)
                 {

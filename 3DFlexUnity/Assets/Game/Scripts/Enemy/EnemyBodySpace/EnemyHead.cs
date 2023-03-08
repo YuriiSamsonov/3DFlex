@@ -1,27 +1,40 @@
+using System;
 using System.Collections;
+using Game.Scripts.Utils;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Scripts.Enemy.EnemyBodySpace
 {
     public class EnemyHead : MonoBehaviour
     {
         [field: SerializeField] 
+        private Transform target;
+        
+        [field: SerializeField] 
         private int maxHp = 50;
+        
+        [field: SerializeField] 
+        private Rigidbody rBody;
 
         [field: SerializeField] 
         private ConfigurableJoint jointToDestroy;
+        
+        [field: SerializeField] 
+        private GameObject blood;
 
         [field: SerializeField] 
         private GameObject[] partsToKill;
+        
+        [field: SerializeField] 
+        private GameObject[] allParts;
 
         [field: SerializeField] 
         private Renderer pelvisRenderer;
-        
+
         private int _currentHp;
         private Color _currentColor;
         private readonly JointDrive _jointSpring = new(){ positionSpring = 0f, positionDamper = 0f };
-        
+
         private void Awake()
         {
             _currentColor = pelvisRenderer.material.color;
@@ -37,6 +50,8 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
 
             if (_currentHp <= 0)
             {
+                blood.SetActive(true);
+                
                 jointToDestroy.connectedBody = null;
                 jointToDestroy.slerpDrive = _jointSpring;
                 jointToDestroy.yMotion = ConfigurableJointMotion.Free;
@@ -53,7 +68,41 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
                         StartCoroutine(KillPartsWithSeconds(i));
                     }
                 }
+
+                for (int i = 0; i < allParts.Length; i++)
+                {
+
+                    if (allParts[i].GetComponent<EnemyChest>())
+                    {
+                        allParts[i].GetComponent<EnemyChest>().OnHit(100000);
+                    }
+                    
+                    StartCoroutine(DestroyTrash(i));
+
+                    allParts[i].tag = "Untagged";
+                    
+                    if (allParts[i].GetComponent<EnemyArm>())
+                        Destroy(allParts[i].GetComponent<EnemyArm>());
+
+                    if (allParts[i].GetComponent<EnemyChest>())
+                        Destroy(allParts[i].GetComponent<EnemyChest>());
+
+                    if (allParts[i].GetComponent<EnemyLeg>())
+                        Destroy(allParts[i].GetComponent<EnemyLeg>());
+                    
+                    if (allParts[i].GetComponent<EnemyPelvis>())
+                        Destroy(allParts[i].GetComponent<EnemyPelvis>());
+                    
+                    if (allParts[i].GetComponent<DirectionController>())
+                        Destroy(allParts[i].GetComponent<DirectionController>());
+                }
             }
+        }
+
+        private IEnumerator DestroyTrash(int i)
+        {
+            yield return new WaitForSeconds(30);
+            allParts[i].SetActive(false);
         }
 
         private IEnumerator ResetColorWithSeconds()

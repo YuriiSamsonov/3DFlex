@@ -5,27 +5,27 @@ namespace Game.Scripts.Enemy
     [RequireComponent(typeof(ConfigurableJoint))]
     public class PhysicalBodyPart : MonoBehaviour
     {
-        [field: SerializeField] 
-        private Transform target;
+        private Transform _target;
 
         private ConfigurableJoint _joint;
         private Quaternion _startRotation;
 
-        private void Start()
+        public void Init(Transform target)
         {
+            _target = target;
             _joint = GetComponent<ConfigurableJoint>();
             _startRotation = transform.localRotation;
         }
 
         private void FixedUpdate()
         {
-            if (target != null)
-                _joint.targetRotation = Quaternion.Inverse(target.localRotation) * _startRotation;
+            if (_target != null)
+                _joint.targetRotation = Quaternion.Inverse(_target.localRotation) * _startRotation;
         }
 
         public void RemoveTarget()
         {
-            target = null;
+            _target = null;
         }
     }
 }

@@ -8,15 +8,35 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
     {
         [field: SerializeField] 
         private int maxHp = 50;
+        
+        [field: SerializeField] 
+        private ConfigurableJoint mainJoint;
 
         [field: SerializeField] 
         private GameObject jointObject;
+        
+        [field: SerializeField] 
+        private GameObject blood;
+        
+        [field: SerializeField] 
+        private GameObject[] partsToKill;
 
         [field: SerializeField] 
         private Renderer[] legRenderer;
         
+        [field: SerializeField] 
+        private bool rightLeg;
+        
+        [field: SerializeField] 
+        private BoxCollider colToChangeMaterial;
+
+        public BoxCollider ColToChangeMaterial => colToChangeMaterial;
+        
+        public bool RightLeg => rightLeg;
+        
         private int _currentHp;
         private Color _currentColor;
+        private readonly JointDrive _jointSpring = new(){ positionSpring = 0f, positionDamper = 0f };
         
         private void Awake()
         {
@@ -38,6 +58,19 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
             {
                 Destroy(jointObject.GetComponent<PhysicalBodyPart>());
                 Destroy(jointObject.GetComponent<ConfigurableJoint>());
+                mainJoint.slerpDrive = _jointSpring;
+                
+                blood.SetActive(true);
+                
+                for (int i = 0; i < partsToKill.Length; i++)
+                {
+                    if (partsToKill[i].GetComponent<PhysicalBodyPart>())
+                    {
+                        partsToKill[i].GetComponentInChildren<PhysicalBodyPart>().RemoveTarget();
+                        partsToKill[i].GetComponent<ConfigurableJoint>().slerpDrive = _jointSpring;
+                    }
+                }
+                
             }
         }
 

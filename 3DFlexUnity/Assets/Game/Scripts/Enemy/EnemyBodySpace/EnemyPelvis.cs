@@ -8,6 +8,12 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
     {
         [field: SerializeField] 
         private int maxHp = 50;
+        
+        [field: SerializeField] 
+        private ConfigurableJoint mainJoint;
+        
+        [field: SerializeField] 
+        private GameObject blood;
 
         [field: SerializeField] 
         private ConfigurableJoint[] jointsToDestroy;
@@ -40,6 +46,10 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
 
             if (_currentHp <= 0)
             {
+                blood.SetActive(true);
+                
+                mainJoint.slerpDrive = _jointSpring;
+                
                 for (int i = 0; i < jointsToDestroy.Length; i++)
                 {
                     if (jointsToDestroy[i].GetComponent<ConfigurableJoint>())
