@@ -5,7 +5,7 @@ namespace Game.Scripts
 {
     public class CupGame : MonoBehaviour
     {
-        //mac
+        //pc
         
         #region SceneReferences
 
@@ -15,7 +15,7 @@ namespace Game.Scripts
         #endregion
 
         #region ScriptableObjects
-        
+
         
 
         #endregion
