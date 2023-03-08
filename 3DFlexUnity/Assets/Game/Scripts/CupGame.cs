@@ -7,6 +7,8 @@ namespace Game.Scripts
     {
         //pc
         
+        //mac
+
         #region SceneReferences
 
         [field: SerializeField] 
