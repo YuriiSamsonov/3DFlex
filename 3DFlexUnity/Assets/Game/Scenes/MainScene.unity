@@ -2428,7 +2428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7066344269261870334, guid: cc99f01b98e3fbc4cb5c49327cd8e10c, type: 3}
       propertyPath: damage
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7066344269261870334, guid: cc99f01b98e3fbc4cb5c49327cd8e10c, type: 3}
       propertyPath: mainMenu
