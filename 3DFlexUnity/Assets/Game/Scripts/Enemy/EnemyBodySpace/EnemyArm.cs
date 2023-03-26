@@ -3,6 +3,7 @@ using System.Collections;
 using Game.Scripts.PlayerSpace;
 using Game.Scripts.Utils;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Enemy.EnemyBodySpace
 {
@@ -13,18 +14,24 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
 
         [field: SerializeField] 
         private GameObject jointObject;
+        /// <summary>
+        /// Objects to destroy after arm death
+        /// </summary>
 
         [field: SerializeField] 
         private Renderer armRenderer;
-        
+
         [field: SerializeField] 
-        private GameObject blood;
+        private GameObject bloodParent;
+        /// <summary>
+        /// Parent object for blood particles
+        /// </summary>
 
         [field: SerializeField]
         private PlayerMono playerMono;
         
         private int _currentHp;
-        private int _damage = 1;
+        private readonly int _damage = 1;
 
         private bool _isAlive = true;
         
@@ -60,7 +67,7 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
             {
                 Destroy(jointObject.GetComponent<PhysicalBodyPart>());
                 Destroy(jointObject.GetComponent<ConfigurableJoint>());
-                blood.SetActive(true);
+                bloodParent.SetActive(true);
                 _isAlive = false;
             }
         }

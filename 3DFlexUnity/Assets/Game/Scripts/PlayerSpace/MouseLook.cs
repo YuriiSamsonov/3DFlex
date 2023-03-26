@@ -4,35 +4,42 @@ namespace Game.Scripts.PlayerSpace
 {
     public class MouseLook : MonoBehaviour
     {
-        [field: SerializeField] 
-        private float mouseSensitivity = 100f;
+        private float _mouseX, _mouseY;
+        
+        [field: SerializeField] private float sensitivityX = 400f;
+        [field: SerializeField] private float sensitivityY = 400f;
+        [field: SerializeField] private Transform orientation;
 
-        [field: SerializeField] 
-        private Transform playerBody;
-
-        private float xRotation;
-        float clock;
+        private float _xRotation;
+        private float _yRotation;
+        
+        private float _clock;
 
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         private void Update()
         {
-            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
-            clock += Time.deltaTime;
-            if (clock > 1f) //hold input for 1 second to avoid my wireless shity logitech b.ug 
+            _clock += Time.deltaTime;
+            
+            if (_clock > 0.5f) //I did it because Logitech MX3 qualitative mouse
             {
-                xRotation -= mouseY;
-                xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-            
-                transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-                playerBody.Rotate(Vector3.up * mouseX);
+                _yRotation += _mouseX;
+                _xRotation -= _mouseY;
+                _xRotation = Mathf.Clamp(_xRotation, -90f, 90f);
+                
+                transform.rotation = Quaternion.Euler(_xRotation, _yRotation, 0);
+                orientation.rotation = Quaternion.Euler(0, _yRotation, 0);
             }
-            
+        }
+
+        public void ReceiveInput(Vector2 mouseInput)
+        {
+            _mouseX = mouseInput.x * Time.deltaTime * sensitivityX;
+            _mouseY = mouseInput.y * Time.deltaTime * sensitivityY;
         }
     }
 }

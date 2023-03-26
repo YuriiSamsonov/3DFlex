@@ -12,9 +12,15 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
 
         [field: SerializeField] 
         private GameObject[] jointsToDestroy;
+        /// <summary>
+        /// Objects to destroy after chest death
+        /// </summary>
 
         [field: SerializeField] 
         private GameObject[] partsToKill;
+        /// <summary>
+        /// 
+        /// </summary>
 
         [field: SerializeField] 
         private Renderer[] pelvisRenderer;

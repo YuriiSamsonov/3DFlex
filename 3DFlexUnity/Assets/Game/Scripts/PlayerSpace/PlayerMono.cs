@@ -10,8 +10,6 @@ namespace Game.Scripts.PlayerSpace
         [field: SerializeField] 
         private int maxHp;
 
-        public int MaxHp => maxHp;
-        
         [field: SerializeField] 
         private AudioSource damageSound;
 
@@ -36,11 +34,6 @@ namespace Game.Scripts.PlayerSpace
                 damageSound.Play();
                 OnPlayerHitEvent(EventArgs.Empty);
                 StartCoroutine(CoolDownHitWithSeconds());
-            }
-
-            if (_currentHp <= 0)
-            {
-                Debug.Log("Player dead");
             }
         }
 

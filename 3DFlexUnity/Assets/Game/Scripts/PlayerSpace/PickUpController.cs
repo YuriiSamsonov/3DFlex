@@ -1,6 +1,7 @@
 using System;
 using Game.Scripts.Objects;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Game.Scripts.PlayerSpace
 {
@@ -21,31 +22,26 @@ namespace Game.Scripts.PlayerSpace
         [field: SerializeField] 
         private float throwDistance;
 
-        private GrabableObject _objectInHand;
+        private CupMono _objectInHand;
         private Rigidbody _objectInHandBody;
 
-        private RaycastHit[] _rayHits = new RaycastHit[1];
+        private readonly RaycastHit[] _rayHits = new RaycastHit[1];
 
         private bool _holdingItem;
         private bool _foundCup;
-
-        private void FixedUpdate()
-        {
-            if (_holdingItem && Input.GetKey(KeyCode.Mouse0))
-            {
-                OnThrowButton();
-            }
-        }
-
+        
         private void Update()
         {
             _foundCup = TryCastForCup(cameraTransform.position, cameraTransform.forward);
-            
-            if (!_holdingItem && Input.GetKeyDown(KeyCode.E))
+        }
+
+        public void OnInteractButton(InputAction.CallbackContext context)
+        {
+            if (!_holdingItem)
             {
                 if (_foundCup)
                 {
-                    _objectInHand = _rayHits[0].collider.GetComponent<GrabableObject>();
+                    _objectInHand = _rayHits[0].collider.GetComponent<CupMono>();
                     _objectInHand.Grab(hand);
                     _objectInHand.InHandState(true);
                     _objectInHandBody = _objectInHand.RBody;
@@ -54,7 +50,7 @@ namespace Game.Scripts.PlayerSpace
                 }
             }
             
-            if(_holdingItem && Input.GetKeyDown(KeyCode.E))
+            if(_holdingItem)
             {
                 _objectInHand.Drop();
                 _objectInHand.InHandState(false);
@@ -62,13 +58,16 @@ namespace Game.Scripts.PlayerSpace
             }
         }
 
-        private void OnThrowButton()
+        public void OnThrowButton(InputAction.CallbackContext context)
         {
-            _objectInHand.Drop();
-            _objectInHand.InHandState(false);
-            ThrowObjectInHand();
-            _objectInHandBody = null;
-            _holdingItem = false;
+            if (_holdingItem)
+            {
+                _objectInHand.Drop();
+                _objectInHand.InHandState(false);
+                ThrowObjectInHand();
+                _objectInHandBody = null;
+                _holdingItem = false;
+            }
         }
 
         private void ThrowObjectInHand()

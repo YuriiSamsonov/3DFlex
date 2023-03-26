@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6006628884860214715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,6 +118,7 @@ MonoBehaviour:
   brokenCup: {fileID: 3517455698292033323, guid: ee31aabe4b512fc46ac7dce6bc0e7ac9, type: 3}
   spawnPoint: {fileID: 0}
   damage: 10
+  mainMenu: {fileID: 0}
 --- !u!64 &8612890917784543061
 MeshCollider:
   m_ObjectHideFlags: 0

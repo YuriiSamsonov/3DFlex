@@ -2369,7 +2369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b926706c0f1e491ab4aac3186cabc0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 60
+  maxHp: 50
   mainJoint: {fileID: 2303237333580846218}
   blood: {fileID: 6863032566744316655}
   jointsToDestroy:
@@ -2497,7 +2497,7 @@ Transform:
   m_GameObject: {fileID: 1216678006590487251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.16, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.52, y: 0.52, z: 0.52}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1216678005062016437}
@@ -2796,7 +2796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f01e7dcb24668aff189b9b0d88038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 200
+  maxHp: 100
   jointsToDestroy:
   - {fileID: 1216678006106280381}
   - {fileID: 1216678005491788729}

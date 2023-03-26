@@ -1,67 +1,129 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 namespace Game.Scripts.PlayerSpace
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [field: SerializeField] 
-        private CharacterController controller;
+        [Header("Movement")]
         
         [field: SerializeField] 
-        private float speed;
+        private Transform orientation;
         
         [field: SerializeField] 
-        private float gravity = -9.81f;
+        private float moveSpeed;
+        
+        [Header("Jump")]
         
         [field: SerializeField] 
-        private Transform groundCheck;
-        
-        [field: SerializeField] 
-        private float groundDistance = 0.4f;
-        
-        [field: SerializeField] 
-        private LayerMask groundMask;
-        
-        [field: SerializeField] 
-        private float jumpHeight = 3f;
-        
-        private float _x;
-        private float _z;
+        private float jumpForce;
 
-        private bool _isGrounded;
+        [field: SerializeField] 
+        private float airMultiplier;
 
-        private Vector3 _velocity;
+        private bool _readyToJump = true;
+
+        [Space]
+        [Header("GroundCheck")]
+        
+        [field: SerializeField] 
+        private float groundDrag;
+        
+        [field: SerializeField] 
+        private Transform rayStart;
+
+        [field: SerializeField] 
+        private LayerMask whatIsGround;
+        
+        [field: SerializeField] 
+        private float rayLength;
+        
+        private bool _grounded;
+
+
+        private Rigidbody _rBody;
+
+        private Vector2 _horizontalInput;
+        private Vector3 _moveDirection;
+        private Vector3 _vel;
+
+        private void Awake()
+        {
+            _rBody = GetComponent<Rigidbody>();
+            _rBody.freezeRotation = true;
+        }
+
+        private void FixedUpdate()
+        {
+            Movement();
+        }
 
         private void Update()
         {
-            _isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-            if (_isGrounded && _velocity.y < 0)
-            {
-                _velocity.y = -2f;
-            }
+            SpeedControl();
             
-            _x = Input.GetAxis("Horizontal");
-            _z = Input.GetAxis("Vertical");
+             if (_grounded)
+                 _rBody.drag = groundDrag;
+             else
+                 _rBody.drag = 0f;
+        }
 
-            Vector3 move = transform.right * _x + transform.forward * _z;
+        private void Movement()
+        {
+            _moveDirection = orientation.forward * _horizontalInput.y + orientation.right * _horizontalInput.x;
+            
+            _grounded = Physics.Raycast(rayStart.position, Vector3.down, rayLength, whatIsGround);
 
-            controller.Move(move * (speed * Time.deltaTime));
-
-            if (Input.GetButtonDown("Jump") && _isGrounded)
+            if (_grounded)
             {
-                _velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                _rBody.AddForce(_moveDirection.normalized * (moveSpeed * 10f), ForceMode.Force);
+                ResetJump();
             }
 
-            if (!_isGrounded)
+            else if (!_grounded)
+                _rBody.AddForce(_moveDirection.normalized * (moveSpeed * 10f * airMultiplier), ForceMode.Force);
+
+        }
+
+        private void SpeedControl()
+        {
+            var velocity = _rBody.velocity;
+            Vector3 flatVel = new Vector3(velocity.x, 0f, velocity.z);
+
+            if (flatVel.magnitude > moveSpeed)
             {
-                _velocity.y -= Time.deltaTime * 10;
+                Vector3 limitedVel = flatVel.normalized * moveSpeed;
+                _rBody.velocity = new Vector3(limitedVel.x, _rBody.velocity.y, limitedVel.z);
             }
+        }
 
-            _velocity.y += gravity * Time.deltaTime;
+        public void OnJumpButton(InputAction.CallbackContext context)
+        {
+            if (_readyToJump && _grounded)
+            {
+                _readyToJump = false;
+                
+                Jump();
+            }
+        }
 
-            controller.Move(_velocity * Time.deltaTime);
+        private void Jump()
+        {
+            _rBody.velocity = new Vector3(_rBody.velocity.x, 0f, _rBody.velocity.z);
+
+            _rBody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        }
+        
+        private void ResetJump()
+        {
+            _readyToJump = true;
+        }
+
+        public void ReceiveInput(Vector2 horizontalInput)
+        {
+            _horizontalInput = horizontalInput;
         }
     }
 }

@@ -46,13 +46,11 @@ namespace Game.Scripts.Enemy
         {
             for (int i = 0; i < _leftColliders.Count; i++)
             {
-                //leftCollider[i].material = normalFriction;
                 _leftColliders[i].ColToChangeMaterial.material = normalFriction;
             }
 
             for (int i = 0; i < _rightColliders.Count; i++)
             {
-                //rightCollider[i].material = zeroFriction;
                 _rightColliders[i].ColToChangeMaterial.material = zeroFriction;
             }
         }
@@ -61,13 +59,11 @@ namespace Game.Scripts.Enemy
         {
             for (int i = 0; i < _leftColliders.Count; i++)
             {
-                //leftCollider[i].material = zeroFriction;
                 _leftColliders[i].ColToChangeMaterial.material = zeroFriction;
             }
 
             for (int i = 0; i < _rightColliders.Count; i++)
             {
-                //rightCollider[i].material = normalFriction;
                 _rightColliders[i].ColToChangeMaterial.material = normalFriction;
             }
         }

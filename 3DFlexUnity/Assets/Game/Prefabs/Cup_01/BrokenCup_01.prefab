@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3517455698292033323}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7928228640060347079}
@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 1161788112026557296, guid: a666e5e5d49906b43a6bef037493ecaf, type: 3}
+  cupRuntimeData: {fileID: 11400000, guid: 467ff3d68444a3241933db07f12f13af, type: 2}
   cupRenderer:
   - {fileID: 695394179692263156, guid: af020db448de2ab4fb7b9dad6503dd4e, type: 3}
   - {fileID: 9002855492683877173, guid: ddae7bf5deaf7ab429f1f75b1c22e10d, type: 3}

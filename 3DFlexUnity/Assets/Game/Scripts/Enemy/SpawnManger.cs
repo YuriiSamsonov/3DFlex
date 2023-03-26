@@ -48,7 +48,6 @@ namespace Game.Scripts.Enemy
             for (int i = 0; i < _waveNumber + 1; i++)
             {
                 var dummy = Instantiate(enemy, spawnPoints[Random.Range(0, spawnPoints.Length)]);
-                //make enemies spawn with delay todo
                 yellowDude.ApplyTargets(dummy);
                 _aliveEnemies++;
             }
