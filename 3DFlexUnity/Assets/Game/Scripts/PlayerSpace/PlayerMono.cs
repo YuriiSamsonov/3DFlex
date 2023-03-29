@@ -25,12 +25,13 @@ namespace Game.Scripts.PlayerSpace
             _currentHp = maxHp;
         }
 
-        public void OnHit(int damage)
+        public void OnHit()
         {
+            const int damageTaken = 1;
             if (!_justHit)
             {
                 _justHit = true;
-                _currentHp -= damage;
+                _currentHp -= damageTaken;
                 damageSound.Play();
                 OnPlayerHitEvent(EventArgs.Empty);
                 StartCoroutine(CoolDownHitWithSeconds());

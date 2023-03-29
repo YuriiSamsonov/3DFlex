@@ -5,96 +5,72 @@ using UnityEngine;
 
 namespace Game.Scripts.Enemy.EnemyBodySpace
 {
-    public class EnemyHead : MonoBehaviour
+    public class EnemyHead : EnemyBodyPart
     {
-        [field: SerializeField] 
-        private Transform target;
-        
-        [field: SerializeField] 
-        private int maxHp = 50;
-        
-        [field: SerializeField] 
-        private Rigidbody rBody;
-
-        [field: SerializeField] 
-        private ConfigurableJoint jointToDestroy;
-        
-        [field: SerializeField] 
-        private GameObject blood;
-
-        [field: SerializeField] 
-        private GameObject[] partsToKill;
-        
         [field: SerializeField] 
         private GameObject[] allParts;
 
-        [field: SerializeField] 
-        private Renderer pelvisRenderer;
-
         private int _currentHp;
-        private Color _currentColor;
         private readonly JointDrive _jointSpring = new(){ positionSpring = 0f, positionDamper = 0f };
 
-        private void Awake()
+        private Action _enemyDeadCallback;
+
+        public void Init(Action enemyDeadCallback)
         {
-            _currentColor = pelvisRenderer.material.color;
-            _currentHp = maxHp;
+            _enemyDeadCallback = enemyDeadCallback;
+        }
+        
+        protected override void Awake()
+        {
+            base.Awake();
+            _currentHp = partMaxHealth;
         }
 
-        public void OnHit(int damage)
+        public override void OnHit(int damage)
         {
-            _currentHp -= damage;
+            _enemyDeadCallback();
             
-            pelvisRenderer.material.color = Color.red;
-            StartCoroutine(ResetColorWithSeconds());
+            _currentHp = Mathf.Max(0, _currentHp - damage);
+            
+            var material = bpRenderer.material;
+            material.color = Color.red;
+            
+            const float delay = 1.0f;
+            StartCoroutine(ResetColorAfterDelay(delay, material));
 
             if (_currentHp <= 0)
             {
-                blood.SetActive(true);
+                bloodParent.SetActive(true);
                 
-                jointToDestroy.connectedBody = null;
-                jointToDestroy.slerpDrive = _jointSpring;
-                jointToDestroy.yMotion = ConfigurableJointMotion.Free;
-                jointToDestroy.zMotion = ConfigurableJointMotion.Free;
-                jointToDestroy.yMotion = ConfigurableJointMotion.Free;
-                
-                for (int i = 0; i < partsToKill.Length; i++)
+                joints[0].connectedBody = null;
+                joints[0].slerpDrive = _jointSpring;
+                joints[0].yMotion = joints[0].zMotion = joints[0].yMotion = ConfigurableJointMotion.Free;
+
+                if (enemyBodyParts != null)
                 {
-                    if(partsToKill[i].GetComponent<PhysicalBodyPart>())
-                        partsToKill[i].GetComponent<PhysicalBodyPart>().RemoveTarget();
-                    
-                    if (partsToKill[i].GetComponent<ConfigurableJoint>())
+                    for (int i = 0; i < enemyBodyParts.Length; i++)
                     {
-                        StartCoroutine(KillPartsWithSeconds(i));
+                        if (enemyBodyParts[i].TryGetComponent<PhysicalBodyPart>(out var bodyPart))
+                        {
+                            bodyPart.RemoveTarget();
+                        }
+
+                        if (enemyBodyParts[i].TryGetComponent<ConfigurableJoint>(out var joint))
+                        {
+                            joint.slerpDrive = _jointSpring;
+                        }
                     }
                 }
 
                 for (int i = 0; i < allParts.Length; i++)
                 {
+                    const int criticalDamage = 10000;
+                    if (allParts[i].TryGetComponent<EnemyChest>(out var chest))
+                        chest.OnHit(criticalDamage);
 
-                    if (allParts[i].GetComponent<EnemyChest>())
-                    {
-                        allParts[i].GetComponent<EnemyChest>().OnHit(100000);
-                    }
-                    
                     StartCoroutine(DestroyTrash(i));
 
-                    allParts[i].tag = "Untagged";
-                    
-                    if (allParts[i].GetComponent<EnemyArm>())
-                        Destroy(allParts[i].GetComponent<EnemyArm>());
-
-                    if (allParts[i].GetComponent<EnemyChest>())
-                        Destroy(allParts[i].GetComponent<EnemyChest>());
-
-                    if (allParts[i].GetComponent<EnemyLeg>())
-                        Destroy(allParts[i].GetComponent<EnemyLeg>());
-                    
-                    if (allParts[i].GetComponent<EnemyPelvis>())
-                        Destroy(allParts[i].GetComponent<EnemyPelvis>());
-                    
-                    if (allParts[i].GetComponent<DirectionController>())
-                        Destroy(allParts[i].GetComponent<DirectionController>());
+                    allParts[i].tag = Variables.UntaggedTag;
                 }
             }
         }
@@ -103,18 +79,6 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
         {
             yield return new WaitForSeconds(30);
             allParts[i].SetActive(false);
-        }
-
-        private IEnumerator ResetColorWithSeconds()
-        {
-            yield return new WaitForSeconds(1);
-            pelvisRenderer.material.color = _currentColor;
-        }
-        
-        private IEnumerator KillPartsWithSeconds(int i)
-        {
-            yield return new WaitForSeconds(1);
-            partsToKill[i].GetComponent<ConfigurableJoint>().slerpDrive = _jointSpring;
         }
     }
 }

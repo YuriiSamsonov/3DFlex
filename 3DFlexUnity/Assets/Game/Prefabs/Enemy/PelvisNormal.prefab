@@ -26,13 +26,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239287828}
   m_LocalRotation: {x: -0.6026559, y: 0.79440165, z: -0.060316894, w: 0.045758124}
-  m_LocalPosition: {x: -0.05, y: 0.2302, z: 0.1436}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalPosition: {x: -0.49999997, y: 1.2019966, z: 1.4359999}
+  m_LocalScale: {x: 0.099999994, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1185723461}
-  m_Father: {fileID: 1216678005491788730}
-  m_RootOrder: 2
+  - {fileID: 1067693092}
+  - {fileID: 591980865}
+  m_Father: {fileID: 1216678005932767975}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 2.331, y: 171.632, z: -74.541}
 --- !u!33 &239287831
 MeshFilter:
@@ -109,14 +111,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591980864}
-  m_LocalRotation: {x: -0.0811504, y: 0.061563026, z: -0.601247, w: 0.7925445}
-  m_LocalPosition: {x: 0.0348, y: 0.2302, z: 0.1471}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_LocalRotation: {x: 0.94783664, y: -0.2693313, z: -0.007072795, w: 0.17034224}
+  m_LocalPosition: {x: -2.2846847, y: -8.125658, z: 0.88701856}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 910490844}
-  m_Father: {fileID: 1216678005491788730}
-  m_RootOrder: 1
+  m_Father: {fileID: 239287829}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -3.13, y: 11.271, z: -74.679}
 --- !u!33 &591980867
 MeshFilter:
@@ -290,13 +292,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067693091}
-  m_LocalRotation: {x: 0.08282217, y: 0.08282215, z: -0.70223963, w: 0.70223963}
-  m_LocalPosition: {x: -0.016, y: 0.0475, z: 0.1049}
-  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
+  m_LocalRotation: {x: 0.9798634, y: -0.12586609, z: 0.12593107, w: 0.09037086}
+  m_LocalPosition: {x: 16.678324, y: -7.5183673, z: 5.0632014}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1216678005491788730}
-  m_RootOrder: 3
+  m_Father: {fileID: 239287829}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 13.453, y: 0, z: -90}
 --- !u!33 &1067693094
 MeshFilter:
@@ -558,12 +560,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c475af46654e04a910a6f78f98462e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
+  partMaxHealth: 10
+  bpRenderer: {fileID: 1216678004951472954}
+  enemyBodyParts:
+  - {fileID: 2367085524723131372}
+  joints:
+  - {fileID: 1216678005062016438}
+  bloodParent: {fileID: 6863032566734665381}
   mainJoint: {fileID: 2303237333580846218}
-  jointObject: {fileID: 1216678005062016436}
-  blood: {fileID: 6863032566734665381}
-  partsToKill:
-  - {fileID: 1216678005000596212}
   legRenderer:
   - {fileID: 1216678005573801153}
   - {fileID: 1216678004951472954}
@@ -899,7 +903,7 @@ GameObject:
   - component: {fileID: 1216678005062016437}
   - component: {fileID: 1216678005062016439}
   - component: {fileID: 1216678005062016438}
-  - component: {fileID: 4659060479620124390}
+  - component: {fileID: 2367085524723131372}
   m_Layer: 8
   m_Name: Leg_Left_Joint
   m_TagString: Untagged
@@ -1035,7 +1039,7 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &4659060479620124390
+--- !u!114 &2367085524723131372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1079,9 +1083,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1216678005932767975}
-  - {fileID: 591980865}
-  - {fileID: 239287829}
-  - {fileID: 1067693092}
   m_Father: {fileID: 1216678006106280382}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1416,11 +1417,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c3379980e24e0a9933e99c17cb37ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
-  jointObject: {fileID: 1216678006004620038}
-  armRenderer: {fileID: 1216678005580180051}
-  blood: {fileID: 6863032565567831880}
-  playerMono: {fileID: 0}
+  partMaxHealth: 1
+  bpRenderer: {fileID: 1216678005580180051}
+  enemyBodyParts:
+  - {fileID: 4659060478415112276}
+  joints:
+  - {fileID: 1216678006004620032}
+  bloodParent: {fileID: 6863032565567831880}
 --- !u!1 &1216678005688286904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,11 +1693,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c3379980e24e0a9933e99c17cb37ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
-  jointObject: {fileID: 1216678005688286904}
-  armRenderer: {fileID: 1216678005870094831}
-  blood: {fileID: 4659060479533797223}
-  playerMono: {fileID: 0}
+  partMaxHealth: 1
+  bpRenderer: {fileID: 1216678005870094831}
+  enemyBodyParts:
+  - {fileID: 4659060480177188322}
+  joints:
+  - {fileID: 1216678005688286906}
+  bloodParent: {fileID: 4659060479533797223}
 --- !u!1 &1216678005932767974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1726,7 +1731,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.11, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 239287829}
   m_Father: {fileID: 1216678005491788730}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1792,20 +1798,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409d1f8da8a244c0ab387309b1e48b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  maxHp: 20
-  rBody: {fileID: 1216678005491788724}
-  jointToDestroy: {fileID: 1216678005491788731}
-  blood: {fileID: 6863032566750172321}
-  partsToKill:
-  - {fileID: 1216678005062016436}
-  - {fileID: 1216678005000596212}
-  - {fileID: 1216678005041727122}
-  - {fileID: 1216678006106280381}
-  - {fileID: 1216678005491788729}
-  - {fileID: 1216678005688286904}
-  - {fileID: 1216678006004620038}
-  - {fileID: 1216678006590487251}
+  partMaxHealth: 1
+  bpRenderer: {fileID: 1216678005932767969}
+  enemyBodyParts:
+  - {fileID: 2367085524723131372}
+  - {fileID: 4659060479522929062}
+  - {fileID: 4659060479633266136}
+  - {fileID: 4659060478447698671}
+  - {fileID: 4659060479980697827}
+  - {fileID: 4659060480177188322}
+  - {fileID: 4659060478415112276}
+  joints:
+  - {fileID: 1216678005062016438}
+  - {fileID: 1216678005000596214}
+  - {fileID: 1216678005041727117}
+  - {fileID: 1216678006106280376}
+  - {fileID: 1216678005491788731}
+  - {fileID: 1216678005688286906}
+  - {fileID: 1216678006004620032}
+  bloodParent: {fileID: 6863032566750172321}
   allParts:
   - {fileID: 1216678006590487251}
   - {fileID: 1216678005062016436}
@@ -1826,7 +1837,6 @@ MonoBehaviour:
   - {fileID: 1216678006004620038}
   - {fileID: 1216678005580180048}
   - {fileID: 4659060478684304181}
-  pelvisRenderer: {fileID: 1216678005932767969}
 --- !u!64 &1606643426
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2369,20 +2379,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b926706c0f1e491ab4aac3186cabc0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
-  mainJoint: {fileID: 2303237333580846218}
-  blood: {fileID: 6863032566744316655}
-  jointsToDestroy:
-  - {fileID: 1216678005041727117}
+  partMaxHealth: 1
+  bpRenderer: {fileID: 1216678006267387413}
+  enemyBodyParts:
+  - {fileID: 2367085524723131372}
+  - {fileID: 4659060479522929062}
+  - {fileID: 4659060478447698671}
+  - {fileID: 4659060479633266136}
+  joints:
+  - {fileID: 1216678005000596214}
+  - {fileID: 1216678005062016438}
   - {fileID: 1216678006106280376}
-  partsToKill:
-  - {fileID: 1216678005062016436}
-  - {fileID: 1216678005000596212}
-  - {fileID: 1216678005041727122}
-  - {fileID: 1216678006590487251}
-  pelvisRenderer:
-  - {fileID: 1216678006270692453}
-  - {fileID: 1216678006267387413}
+  bloodParent: {fileID: 6863032566744316655}
+  mainJoint: {fileID: 2303237333580846218}
 --- !u!1 &1216678006270692458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,7 +2684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BodyParts:
-  - {fileID: 4659060479620124390}
+  - {fileID: 2367085524723131372}
   - {fileID: 4659060479522929062}
   - {fileID: 4659060479633266136}
   - {fileID: 4659060478447698671}
@@ -2796,23 +2805,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f01e7dcb24668aff189b9b0d88038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
-  jointsToDestroy:
-  - {fileID: 1216678006106280381}
-  - {fileID: 1216678005491788729}
-  - {fileID: 1216678005688286904}
-  - {fileID: 1216678006004620038}
-  partsToKill:
-  - {fileID: 1216678006590487251}
-  - {fileID: 1216678005062016436}
-  - {fileID: 1216678005000596212}
-  - {fileID: 1216678005041727122}
-  - {fileID: 1216678006106280381}
-  - {fileID: 1216678005491788729}
-  - {fileID: 1216678005688286904}
-  - {fileID: 1216678006004620038}
-  pelvisRenderer:
-  - {fileID: 1216678006750611948}
+  partMaxHealth: 1
+  bpRenderer: {fileID: 1216678006750611948}
+  enemyBodyParts:
+  - {fileID: 2367085524723131372}
+  - {fileID: 4659060479522929062}
+  - {fileID: 4659060479633266136}
+  - {fileID: 4659060479980697827}
+  - {fileID: 4659060480177188322}
+  - {fileID: 4659060478415112276}
+  joints:
+  - {fileID: 1216678005062016438}
+  - {fileID: 1216678005000596214}
+  - {fileID: 1216678005041727117}
+  - {fileID: 1216678005491788731}
+  - {fileID: 1216678005688286906}
+  - {fileID: 1216678006004620032}
+  bloodParent: {fileID: 6863032566744316655}
 --- !u!1 &1216678006870480647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,12 +2949,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c475af46654e04a910a6f78f98462e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
+  partMaxHealth: 10
+  bpRenderer: {fileID: 1216678006870480642}
+  enemyBodyParts:
+  - {fileID: 4659060479522929062}
+  joints:
+  - {fileID: 1216678005000596214}
+  bloodParent: {fileID: 6863032566950348883}
   mainJoint: {fileID: 2303237333580846218}
-  jointObject: {fileID: 1216678005000596212}
-  blood: {fileID: 6863032566950348883}
-  partsToKill:
-  - {fileID: 1216678005062016436}
   legRenderer:
   - {fileID: 1216678006232773479}
   - {fileID: 1216678006870480642}

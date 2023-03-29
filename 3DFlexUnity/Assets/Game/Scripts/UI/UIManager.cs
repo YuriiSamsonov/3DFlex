@@ -11,8 +11,8 @@ namespace Game.Scripts.UI
 {
     public class UIManager : MonoBehaviour
     {
-        [field: SerializeField] 
-        private SpawnManger spawnManger;
+        [FormerlySerializedAs("spawnManger")] [field: SerializeField] 
+        private SpawnManager spawnManager;
         
         [field: SerializeField] 
         private PlayerMono playerMono;
@@ -52,7 +52,7 @@ namespace Game.Scripts.UI
 
         private void Update()
         {
-            if (spawnManger.AliveEnemies <= 0)
+            if (spawnManager.AliveEnemies <= 0)
             {
                 waveCountUI.SetActive(true);
                 StartCoroutine(HideWaveCountWithFourSeconds());

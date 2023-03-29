@@ -1,6 +1,7 @@
 using System;
 using Game.Scripts.Enemy;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game.Scripts.UI
@@ -10,12 +11,12 @@ namespace Game.Scripts.UI
         [field: SerializeField] 
         private Text scoreText;
         
-        [field: SerializeField] 
-        private SpawnManger spawnManger;
+        [FormerlySerializedAs("spawnManger")] [field: SerializeField] 
+        private SpawnManager spawnManager;
 
         private void Update()
         {
-            scoreText.text = "WAVE : " + spawnManger.WaveNumber;
+            scoreText.text = "WAVE : " + spawnManager.WaveNumber;
         }
         
         

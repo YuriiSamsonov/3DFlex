@@ -62,7 +62,7 @@ namespace Game.Scripts.Objects
             rBody.constraints = RigidbodyConstraints.None;
         }
 
-        private void OnHit()
+        private void OnCollision()
         {
             var newBrokenCup = Instantiate(brokenCup);
 
@@ -92,7 +92,7 @@ namespace Game.Scripts.Objects
 
             if (Vector3.Distance(spawnPoint.position, transform.position) > 100)
             {
-                OnHit();
+                OnCollision();
             }
         }
 
@@ -100,7 +100,7 @@ namespace Game.Scripts.Objects
         {
             if (rBody.velocity.magnitude > 2.5f && !_inHand)
             {
-                OnHit();
+                OnCollision();
 
                 switch (collision.collider.tag)
                 {

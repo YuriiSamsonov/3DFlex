@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 namespace Game.Scripts.Enemy
 {
-    public class SpawnManger : MonoBehaviour
+    public class SpawnManager : MonoBehaviour
     {
         [field: SerializeField] 
         private Enemy enemy;
@@ -22,7 +22,7 @@ namespace Game.Scripts.Enemy
         [field: SerializeField] 
         private YellowDude yellowDude;
 
-        private EnemyChest[] _liveEnemies;
+        private EnemyHead[] _liveEnemies;
 
         private int _randomPos;
         private int _waveNumber;
@@ -52,11 +52,11 @@ namespace Game.Scripts.Enemy
                 _aliveEnemies++;
             }
 
-            _liveEnemies = FindObjectsOfType<EnemyChest>();
+            _liveEnemies = FindObjectsOfType<EnemyHead>();
             
             for (int i = 0; i < _liveEnemies.Length; i++)
             {
-                EstablishEventConnections(i);
+                _liveEnemies[i].Init(DeadEnemiesCount);
             }
             
             friction.SetCollidersFriction();
@@ -64,12 +64,7 @@ namespace Game.Scripts.Enemy
             _waveNumber++;
         }
 
-        private void EstablishEventConnections(int i)
-        {
-            _liveEnemies[i].EnemyDeadEvent += DeadEnemiesCount;
-        }
-
-        private void DeadEnemiesCount(EventArgs _)
+        private void DeadEnemiesCount()
         {
             _aliveEnemies--;
             _score += 11;
