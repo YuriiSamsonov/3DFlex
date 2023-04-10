@@ -9,14 +9,14 @@ namespace Game.Scripts.UI
     public class WaveNumberUI : MonoBehaviour
     {
         [field: SerializeField] 
-        private Text scoreText;
+        private Text scoreAndWaveText;
         
-        [FormerlySerializedAs("spawnManger")] [field: SerializeField] 
+        [field: SerializeField] 
         private SpawnManager spawnManager;
 
-        private void Update()
+        public void UpdateWaveCount()
         {
-            scoreText.text = "WAVE : " + spawnManager.WaveNumber;
+            scoreAndWaveText.text = "WAVE : " + spawnManager.WaveNumber;
         }
         
         

@@ -314,7 +314,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1532921826}
         m_TargetAssemblyTypeName: Game.Scripts.Objects.MainMenu, Assembly-CSharp
-        m_MethodName: RightCupTexture
+        m_MethodName: OnButtonNextTexture
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -760,8 +760,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1532921826}
-        m_TargetAssemblyTypeName: Game.Scripts.Objects.MainMenu, Assembly-CSharp
-        m_MethodName: LeftCupTexture
+        m_TargetAssemblyTypeName: Game.Scripts.Menus.MainMenu, Assembly-CSharp
+        m_MethodName: OnButtonPreviousTexture
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1355,6 +1355,10 @@ PrefabInstance:
       propertyPath: block
       value: 
       objectReference: {fileID: 1964841563}
+    - target: {fileID: 1161788112026557296, guid: a666e5e5d49906b43a6bef037493ecaf, type: 3}
+      propertyPath: rotationSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 1161788112026557296, guid: a666e5e5d49906b43a6bef037493ecaf, type: 3}
       propertyPath: cupRuntimeData
       value: 

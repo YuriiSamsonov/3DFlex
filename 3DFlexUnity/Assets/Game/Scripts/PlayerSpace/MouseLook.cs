@@ -6,8 +6,8 @@ namespace Game.Scripts.PlayerSpace
     {
         private float _mouseX, _mouseY;
         
-        [field: SerializeField] private float sensitivityX = 400f;
-        [field: SerializeField] private float sensitivityY = 400f;
+        [field: SerializeField] private float sensitivityX = 10f;
+        [field: SerializeField] private float sensitivityY = 10f;
         [field: SerializeField] private Transform orientation;
 
         private float _xRotation;
@@ -25,7 +25,7 @@ namespace Game.Scripts.PlayerSpace
         {
             _clock += Time.deltaTime;
             
-            if (_clock > 0.5f) //I did it because Logitech MX3 qualitative mouse
+            if (_clock > 0.5f) //I did it because Logitech MX3 "quality" mouse
             {
                 _yRotation += _mouseX;
                 _xRotation -= _mouseY;

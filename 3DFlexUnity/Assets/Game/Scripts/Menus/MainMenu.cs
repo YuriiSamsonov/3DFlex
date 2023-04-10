@@ -1,17 +1,20 @@
-using System;
-using System.Linq;
 using Game.Scripts.ScriptableObjects;
+using Game.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
-namespace Game.Scripts.Objects
+namespace Game.Scripts.Menus
 {
     public class MainMenu : MonoBehaviour
     {
-        
+        /// <summary>
+        /// Cup to rotate in scene.
+        /// </summary>
         [field: SerializeField] 
         private GameObject cup;
+        
+        [field: SerializeField] 
+        private float rotationSpeed = 0.02f;
 
         [field: SerializeField] 
         private Texture2D[] cupTexture;
@@ -22,27 +25,26 @@ namespace Game.Scripts.Objects
         private CupRuntimeData cupRuntimeData;
         
         private int _currentTexture;
+        private float _rotation;
 
         private void Start()
         {
             cupRuntimeData.cupTexture = cupTexture[0];
             _cupRenderer = cup.GetComponent<Renderer>();
             ApplyTexture();
+            _rotation = rotationSpeed / Time.fixedDeltaTime; // difficult..............
 
             Time.timeScale = 1f;
         }
 
         private void FixedUpdate()
         {
-            if (cup != null)
-            {
-                cup.transform.Rotate(0,1,0, Space.Self);
-            }
+            cup.transform.Rotate(0,_rotation,0, Space.Self);
         }
         
         public void PlayGame()
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(Variables.MainSceneBuildIndex);
         }
 
         public void ExitGame()
@@ -50,7 +52,7 @@ namespace Game.Scripts.Objects
             Application.Quit();
         }
 
-        public void RightCupTexture()
+        public void OnButtonNextTexture()
         {
             if (_currentTexture >= cupTexture.Length - 1)
             {
@@ -61,7 +63,7 @@ namespace Game.Scripts.Objects
             ApplyTexture();
         }
 
-        public void LeftCupTexture()
+        public void OnButtonPreviousTexture()
         {
             if (_currentTexture <= 0)
             {

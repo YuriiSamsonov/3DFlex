@@ -6,10 +6,13 @@ namespace Game.Scripts.Enemy
     public class PhysicalBodyPart : MonoBehaviour
     {
         private Transform _target;
-
         private ConfigurableJoint _joint;
         private Quaternion _startRotation;
 
+        /// <summary>
+        /// Initialize PhysicalBodyPart components 
+         /// </summary>
+        /// <param name="target"></param>
         public void Init(Transform target)
         {
             _target = target;
@@ -19,13 +22,7 @@ namespace Game.Scripts.Enemy
 
         private void FixedUpdate()
         {
-            if (_target != null)
-                _joint.targetRotation = Quaternion.Inverse(_target.localRotation) * _startRotation;
-        }
-
-        public void RemoveTarget()
-        {
-            _target = null;
+            _joint.targetRotation = Quaternion.Inverse(_target.localRotation) * _startRotation;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Game.Scripts.UI
 {
     public class UIManager : MonoBehaviour
     {
-        [FormerlySerializedAs("spawnManger")] [field: SerializeField] 
+        [field: SerializeField] 
         private SpawnManager spawnManager;
         
         [field: SerializeField] 
@@ -36,10 +36,16 @@ namespace Game.Scripts.UI
         private GameObject pauseScreen;
         
         [field: SerializeField] 
-        private GameObject point;
+        private GameObject crosshair;
         
         [field: SerializeField] 
         private GameObject damageScreen;
+
+        [field: SerializeField] 
+        private float waveNumberScreenHideDelay = 4f;
+
+        private ScoreUI _scoreUI;
+        private WaveNumberUI _waveNumberUI;
 
         private bool _paused;
         private bool _playerDead;
@@ -47,26 +53,28 @@ namespace Game.Scripts.UI
         private void Start()
         {
             waveCountUI.SetActive(true);
-            StartCoroutine(HideWaveCountWithFourSeconds());
+            StartCoroutine(HideWaveCountAfterDelay(waveNumberScreenHideDelay));
+            _scoreUI = scoreUI.GetComponent<ScoreUI>();
+            _waveNumberUI = waveCountUI.GetComponent<WaveNumberUI>();
+            playerMono.OnPlayerDiedEvent += OnPlayerDeadEventHandler;
+            spawnManager.OnSpawnNewWave += OnSpawnNewWaveEventHandler;
         }
 
-        private void Update()
+        private void OnPlayerDeadEventHandler(EventArgs _)
         {
-            if (spawnManager.AliveEnemies <= 0)
-            {
-                waveCountUI.SetActive(true);
-                StartCoroutine(HideWaveCountWithFourSeconds());
-            }
-            
-            if (playerMono.CurrentHp <= 0)
-            {
-                Time.timeScale = 0f;
-                CursorOnPause();
-                OnPause(true, false);
-                deathScreen.SetActive(true);
-                damageScreen.SetActive(false);
-                _playerDead = true;
-            }
+            Time.timeScale = 0f;
+            CursorOnPause();
+            OnPause(true, false);
+            deathScreen.SetActive(true);
+            damageScreen.SetActive(false);
+            _playerDead = true;
+        }
+
+        private void OnSpawnNewWaveEventHandler(EventArgs _)
+        {
+            waveCountUI.SetActive(true);
+            _waveNumberUI.UpdateWaveCount();
+            StartCoroutine(HideWaveCountAfterDelay(waveNumberScreenHideDelay));
         }
 
         public void OnEscapeButton(InputAction.CallbackContext context)
@@ -88,11 +96,13 @@ namespace Game.Scripts.UI
         private void OnPause(bool uiState, bool hudState)
         {
             hpBar.SetActive(hudState);
-            point.SetActive(hudState);
+            crosshair.SetActive(hudState);
             exitButton.SetActive(uiState);
             scoreUI.SetActive(uiState);
+            _scoreUI.UpdateScore();
             pauseScreen.SetActive(uiState);
             waveCountUI.SetActive(uiState);
+            _waveNumberUI.UpdateWaveCount();
             _paused = uiState;
         }
 
@@ -108,9 +118,9 @@ namespace Game.Scripts.UI
             Cursor.visible = true;
         }
         
-        private IEnumerator HideWaveCountWithFourSeconds()
+        private IEnumerator HideWaveCountAfterDelay(float delay)
         {
-            yield return new WaitForSecondsRealtime(4);
+            yield return new WaitForSeconds(delay);
             waveCountUI.SetActive(false);
         }
     }

@@ -12,6 +12,7 @@ TagManager:
   - EnemyPelvis
   - EnemyChest
   - Ground
+  - EnemyBodyPart
   layers:
   - Default
   - TransparentFX

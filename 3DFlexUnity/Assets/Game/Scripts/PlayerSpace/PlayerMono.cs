@@ -18,14 +18,15 @@ namespace Game.Scripts.PlayerSpace
         
         private bool _justHit;
 
-        public event Event<EventArgs> OnPlayerHitEvent; 
+        public event Event<EventArgs> OnPlayerHitEvent;
+        public event Event<EventArgs> OnPlayerDiedEvent;
 
         private void Start()
         {
             _currentHp = maxHp;
         }
 
-        public void OnHit()
+        public void OnPlayerTakeDamage()
         {
             const int damageTaken = 1;
             if (!_justHit)
@@ -35,17 +36,17 @@ namespace Game.Scripts.PlayerSpace
                 damageSound.Play();
                 OnPlayerHitEvent(EventArgs.Empty);
                 StartCoroutine(CoolDownHitWithSeconds());
+                
+                if (_currentHp <= 0)
+                {
+                    OnPlayerDiedEvent(EventArgs.Empty);
+                }
             }
-        }
-
-        public void OnHeal(int heal)
-        {
-            _currentHp += heal;
         }
 
         private IEnumerator CoolDownHitWithSeconds()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return Variables.WaitForHalfASecond; 
             _justHit = false;
         }
     }

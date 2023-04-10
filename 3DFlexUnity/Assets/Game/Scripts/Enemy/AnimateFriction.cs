@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Game.Scripts.Enemy.EnemyBodySpace;
 using UnityEngine;
 
@@ -7,41 +6,40 @@ namespace Game.Scripts.Enemy
 {
     public class AnimateFriction : MonoBehaviour
     {
-        [field: SerializeField] 
+        /// <summary>
+        /// Material with normal friction.
+        /// </summary>
+        [field: SerializeField, Tooltip("Material with normal friction.")] 
         private PhysicMaterial normalFriction;
         
-        [field: SerializeField] 
+        /// <summary>
+        /// Material with zeno friction.
+        /// </summary>
+        [field: SerializeField, Tooltip("Material with zeno friction.")]
         private PhysicMaterial zeroFriction;
 
         private List<EnemyLeg> _leftColliders;
         private List<EnemyLeg> _rightColliders;
-        
-        public void SetCollidersFriction()
+
+        private void Awake()
         {
             _leftColliders = new List<EnemyLeg>();
             _rightColliders = new List<EnemyLeg>();
-            
-            FindAllColliders();
         }
-        
-        private void FindAllColliders()
+
+        /// <summary>
+        /// Add enemy leg to list/
+        /// </summary>
+        public void AddNewLegs(EnemyLeg left, EnemyLeg right)
         {
-            var list = FindObjectsOfType<EnemyLeg>().ToList();
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i].RightLeg)
-                {
-                    _rightColliders.Add(list[i]);
-                }
-
-                if (!list[i].RightLeg)
-                {
-                    _leftColliders.Add(list[i]);
-                }
-            }
+            _leftColliders.Add(left);
+            _rightColliders.Add(right);
         }
 
+        /// <summary>
+        /// Change friction to all legs.
+        /// Uses fot animate left leg.
+        /// </summary>
         public void SetLeftFriction()
         {
             for (int i = 0; i < _leftColliders.Count; i++)
@@ -55,6 +53,10 @@ namespace Game.Scripts.Enemy
             }
         }
 
+        /// <summary>
+        /// Change friction to all legs.
+        /// Uses fot animate right leg.
+        /// </summary>
         public void SetRightFriction()
         {
             for (int i = 0; i < _leftColliders.Count; i++)

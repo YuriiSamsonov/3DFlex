@@ -30,11 +30,11 @@ Transform:
   m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 7928228640060347079}
-  - {fileID: 7759914160990189557}
-  - {fileID: 3854933645669890335}
-  - {fileID: 6608847936765678036}
   - {fileID: 3988564394167906917}
+  - {fileID: 6608847936765678036}
+  - {fileID: 7759914160990189557}
+  - {fileID: 7928228640060347079}
+  - {fileID: 3854933645669890335}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6f154bc393483fb5b6ef3da9dea441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 1161788112026557296, guid: a666e5e5d49906b43a6bef037493ecaf, type: 3}
   cupRuntimeData: {fileID: 11400000, guid: 467ff3d68444a3241933db07f12f13af, type: 2}
   cupRenderer:
   - {fileID: 695394179692263156, guid: af020db448de2ab4fb7b9dad6503dd4e, type: 3}
@@ -175,7 +174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5492845526787450269, guid: 2c812c0182ff1d940995561a65c6a23e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5492845526787450269, guid: 2c812c0182ff1d940995561a65c6a23e, type: 3}
       propertyPath: m_LocalScale.x
@@ -248,7 +247,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5835689311102405486}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.01
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -295,7 +294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1868331453481323931, guid: af020db448de2ab4fb7b9dad6503dd4e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1868331453481323931, guid: af020db448de2ab4fb7b9dad6503dd4e, type: 3}
       propertyPath: m_LocalScale.x
@@ -373,7 +372,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4482393438618821541}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.01
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -403,7 +402,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6089295305314724205, guid: bc206c1434e57e94898a3dcbb9a0cdb3, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6089295305314724205, guid: bc206c1434e57e94898a3dcbb9a0cdb3, type: 3}
       propertyPath: m_LocalScale.x
@@ -488,7 +487,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7299606422785902717}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.01
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -535,7 +534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7835064350192119898, guid: ddae7bf5deaf7ab429f1f75b1c22e10d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7835064350192119898, guid: ddae7bf5deaf7ab429f1f75b1c22e10d, type: 3}
       propertyPath: m_LocalScale.x
@@ -613,7 +612,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4328498568405346527}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.01
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -643,7 +642,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 161540211356576321, guid: cd40a506e357d304b9d96d2a9659e8ee, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 161540211356576321, guid: cd40a506e357d304b9d96d2a9659e8ee, type: 3}
       propertyPath: m_LocalScale.x
@@ -728,7 +727,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6988197373032246607}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.01
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1

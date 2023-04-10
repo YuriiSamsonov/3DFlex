@@ -8,13 +8,13 @@ namespace Game.Scripts.UI
 {
     public class ScoreUI : MonoBehaviour
     {
-        [FormerlySerializedAs("spawnManger")] [field: SerializeField] 
+        [field: SerializeField] 
         private SpawnManager spawnManager;
         
         [field: SerializeField] 
         private Text scoreText;
 
-        private void Update()
+        public void UpdateScore()
         {
             scoreText.text = "Score : " + spawnManager.Score;
         }

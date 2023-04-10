@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 2486161490585540231}
   m_Layer: 0
   m_Name: PlayerObj
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,8 +387,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 5
-  rBody: {fileID: 6361363611043989941}
-  cameraTransform: {fileID: 2486161490347688787}
   damageSound: {fileID: 2486161491315813676}
 --- !u!114 &6361363611043989946
 MonoBehaviour:
@@ -404,6 +402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 6361363611043989940}
   mouseLook: {fileID: 2486161490347688786}
+  pickUpController: {fileID: 0}
+  uiManager: {fileID: 0}
 --- !u!114 &6361363611043989940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +419,6 @@ MonoBehaviour:
   orientation: {fileID: 2486161491445750869}
   moveSpeed: 3
   jumpForce: 5
-  jumpCooldown: 0.25
   airMultiplier: 0.4
   groundDrag: 5
   rayStart: {fileID: 2486161490242366181}
@@ -689,7 +688,7 @@ GameObject:
   - component: {fileID: 7171166703827797934}
   m_Layer: 0
   m_Name: PlayerSpace
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -445,11 +445,10 @@ GameObject:
   - component: {fileID: 1216678004951472955}
   - component: {fileID: 1216678004951472954}
   - component: {fileID: 1216678004951472953}
-  - component: {fileID: 4659060479442339938}
   - component: {fileID: 5785661939545718013}
   m_Layer: 8
   m_Name: Cube_LeftLeg
-  m_TagString: EnemyLeg
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -533,21 +532,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4659060479442339938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216678004951472959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ebc10a7dd44770a3e64dd00038e599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allColliders:
-  - {fileID: 1216678005580180050}
-  - {fileID: 1216678004951472953}
 --- !u!114 &5785661939545718013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,10 +552,8 @@ MonoBehaviour:
   - {fileID: 1216678005062016438}
   bloodParent: {fileID: 6863032566734665381}
   mainJoint: {fileID: 2303237333580846218}
-  legRenderer:
-  - {fileID: 1216678005573801153}
-  - {fileID: 1216678004951472954}
-  rightLeg: 0
+  isDead: 0
+  currentHp: 0
   colToChangeMaterial: {fileID: 1216678005573801152}
 --- !u!1 &1216678005000596212
 GameObject:
@@ -587,7 +569,7 @@ GameObject:
   - component: {fileID: 4659060479522929062}
   m_Layer: 8
   m_Name: Leg_Right_Joint
-  m_TagString: Untagged
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -746,7 +728,7 @@ GameObject:
   - component: {fileID: 4659060479633266136}
   m_Layer: 8
   m_Name: Spine_0_Joint
-  m_TagString: Untagged
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -906,7 +888,7 @@ GameObject:
   - component: {fileID: 2367085524723131372}
   m_Layer: 8
   m_Name: Leg_Left_Joint
-  m_TagString: Untagged
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1065,7 +1047,7 @@ GameObject:
   - component: {fileID: 4659060479980697827}
   m_Layer: 8
   m_Name: Head_Joint
-  m_TagString: Untagged
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1223,7 +1205,7 @@ GameObject:
   - component: {fileID: 1216678005573801153}
   - component: {fileID: 1216678005573801152}
   m_Layer: 8
-  m_Name: Cube (1)
+  m_Name: LeftFeet
   m_TagString: EnemyLeg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1318,11 +1300,12 @@ GameObject:
   - component: {fileID: 1216678005580180049}
   - component: {fileID: 1216678005580180044}
   - component: {fileID: 1216678005580180051}
+  - component: {fileID: 9130838805169191176}
   - component: {fileID: 1216678005580180050}
   - component: {fileID: 5785661939972853156}
   m_Layer: 8
   m_Name: Cube_ArmLeft
-  m_TagString: EnemyArm
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1392,6 +1375,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9130838805169191176
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216678005580180048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4885805, y: 1.0071893, z: 2.8855486}
+  m_Center: {x: 0.08192655, y: -0.95050496, z: -0.19007364}
 --- !u!65 &1216678005580180050
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1424,6 +1420,10 @@ MonoBehaviour:
   joints:
   - {fileID: 1216678006004620032}
   bloodParent: {fileID: 6863032565567831880}
+  mainJoint: {fileID: 0}
+  isDead: 0
+  currentHp: 0
+  damageCollider: {fileID: 9130838805169191176}
 --- !u!1 &1216678005688286904
 GameObject:
   m_ObjectHideFlags: 0
@@ -1438,7 +1438,7 @@ GameObject:
   - component: {fileID: 4659060480177188322}
   m_Layer: 8
   m_Name: Arm_Right_Joint
-  m_TagString: Untagged
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1594,11 +1594,12 @@ GameObject:
   - component: {fileID: 1216678005870094829}
   - component: {fileID: 1216678005870094824}
   - component: {fileID: 1216678005870094831}
+  - component: {fileID: 7317290609228472766}
   - component: {fileID: 1216678005870094830}
   - component: {fileID: 5785661939725995564}
   m_Layer: 8
   m_Name: Cube_ArmRight
-  m_TagString: EnemyArm
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1668,6 +1669,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7317290609228472766
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216678005870094828}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.4885805, y: 1.0171226, z: 2.970758}
+  m_Center: {x: 0.08192655, y: -0.9554717, z: -0.14694373}
 --- !u!65 &1216678005870094830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1700,6 +1714,10 @@ MonoBehaviour:
   joints:
   - {fileID: 1216678005688286906}
   bloodParent: {fileID: 4659060479533797223}
+  mainJoint: {fileID: 0}
+  isDead: 0
+  currentHp: 0
+  damageCollider: {fileID: 7317290609228472766}
 --- !u!1 &1216678005932767974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,7 +1733,7 @@ GameObject:
   - component: {fileID: 1606643426}
   m_Layer: 8
   m_Name: Cube_Head
-  m_TagString: EnemyHead
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1817,6 +1835,9 @@ MonoBehaviour:
   - {fileID: 1216678005688286906}
   - {fileID: 1216678006004620032}
   bloodParent: {fileID: 6863032566750172321}
+  mainJoint: {fileID: 0}
+  isDead: 0
+  currentHp: 0
   allParts:
   - {fileID: 1216678006590487251}
   - {fileID: 1216678005062016436}
@@ -1865,7 +1886,7 @@ GameObject:
   - component: {fileID: 4659060478415112276}
   m_Layer: 8
   m_Name: Arm_Left_Joint
-  m_TagString: Untagged
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2024,7 +2045,7 @@ GameObject:
   - component: {fileID: 4659060478447698671}
   m_Layer: 8
   m_Name: Spine_1_Joint
-  m_TagString: Untagged
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2185,7 +2206,7 @@ GameObject:
   - component: {fileID: 1216678006232773479}
   - component: {fileID: 1216678006232773478}
   m_Layer: 8
-  m_Name: Cube (1)
+  m_Name: RightFeet
   m_TagString: EnemyLeg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2284,7 +2305,7 @@ GameObject:
   - component: {fileID: 376504863}
   m_Layer: 8
   m_Name: Cube(Pelvis)
-  m_TagString: EnemyPelvis
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2392,6 +2413,8 @@ MonoBehaviour:
   - {fileID: 1216678006106280376}
   bloodParent: {fileID: 6863032566744316655}
   mainJoint: {fileID: 2303237333580846218}
+  isDead: 0
+  currentHp: 0
 --- !u!1 &1216678006270692458
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,7 +2428,7 @@ GameObject:
   - component: {fileID: 1216678006270692453}
   m_Layer: 8
   m_Name: Cube_Pelvis
-  m_TagString: Untagged
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2491,8 +2514,8 @@ GameObject:
   - component: {fileID: 4659060478384078730}
   - component: {fileID: 6565425100016575921}
   m_Layer: 8
-  m_Name: PelvisNormal
-  m_TagString: Untagged
+  m_Name: Enemy
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2683,7 +2706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adea66a848c34b8d97d5529d536c2398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BodyParts:
+  bodyParts:
   - {fileID: 2367085524723131372}
   - {fileID: 4659060479522929062}
   - {fileID: 4659060479633266136}
@@ -2691,6 +2714,9 @@ MonoBehaviour:
   - {fileID: 4659060479980697827}
   - {fileID: 4659060480177188322}
   - {fileID: 4659060478415112276}
+  enemyHead: {fileID: 1606643423}
+  leftLeg: {fileID: 5785661939545718013}
+  rightLeg: {fileID: 5785661938851442901}
 --- !u!1 &1216678006750611953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2706,7 +2732,7 @@ GameObject:
   - component: {fileID: 5785661938928315971}
   m_Layer: 8
   m_Name: Cube_Chest
-  m_TagString: EnemyChest
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2822,6 +2848,13 @@ MonoBehaviour:
   - {fileID: 1216678005688286906}
   - {fileID: 1216678006004620032}
   bloodParent: {fileID: 6863032566744316655}
+  mainJoint: {fileID: 0}
+  isDead: 0
+  currentHp: 0
+  head: {fileID: 1606643423}
+  arms:
+  - {fileID: 5785661939725995564}
+  - {fileID: 5785661939972853156}
 --- !u!1 &1216678006870480647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2834,11 +2867,10 @@ GameObject:
   - component: {fileID: 1216678006870480643}
   - component: {fileID: 1216678006870480642}
   - component: {fileID: 1216678006870480641}
-  - component: {fileID: 4659060479280972906}
   - component: {fileID: 5785661938851442901}
   m_Layer: 8
   m_Name: Cube_RightLeg
-  m_TagString: EnemyLeg
+  m_TagString: EnemyBodyPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2922,21 +2954,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4659060479280972906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216678006870480647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ebc10a7dd44770a3e64dd00038e599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  allColliders:
-  - {fileID: 1216678005870094830}
-  - {fileID: 1216678006870480641}
 --- !u!114 &5785661938851442901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2957,10 +2974,8 @@ MonoBehaviour:
   - {fileID: 1216678005000596214}
   bloodParent: {fileID: 6863032566950348883}
   mainJoint: {fileID: 2303237333580846218}
-  legRenderer:
-  - {fileID: 1216678006232773479}
-  - {fileID: 1216678006870480642}
-  rightLeg: 1
+  isDead: 0
+  currentHp: 0
   colToChangeMaterial: {fileID: 1216678006232773478}
 --- !u!1 &4659060478684304181
 GameObject:
@@ -3142,6 +3157,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2276056223626128258, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBodyPart
+      objectReference: {fileID: 0}
     - target: {fileID: 2276056223626128259, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3216,6 +3235,10 @@ PrefabInstance:
     - target: {fileID: 2276056223626128258, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2276056223626128258, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBodyPart
       objectReference: {fileID: 0}
     - target: {fileID: 2276056223626128259, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
       propertyPath: m_RootOrder
@@ -3304,6 +3327,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2276056223626128258, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBodyPart
+      objectReference: {fileID: 0}
     - target: {fileID: 2276056223626128259, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3390,6 +3417,10 @@ PrefabInstance:
     - target: {fileID: 2276056223626128258, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2276056223626128258, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBodyPart
       objectReference: {fileID: 0}
     - target: {fileID: 2276056223626128259, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
       propertyPath: m_RootOrder
@@ -3478,6 +3509,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2276056223626128258, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBodyPart
+      objectReference: {fileID: 0}
     - target: {fileID: 2276056223626128259, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3564,6 +3599,10 @@ PrefabInstance:
     - target: {fileID: 2276056223626128258, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2276056223626128258, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
+      propertyPath: m_TagString
+      value: EnemyBodyPart
       objectReference: {fileID: 0}
     - target: {fileID: 2276056223626128259, guid: 8f142e36ca9a5f24eacdcea962c20d85, type: 3}
       propertyPath: m_RootOrder

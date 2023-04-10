@@ -29,12 +29,16 @@ namespace Game.Scripts.PlayerSpace
             _groundMovement = _playerControls.GroundMovement;
             
             //_groundMovement.[action].performed += context => do something
+            
             _groundMovement.HorizontalMovement.performed += ctx => 
                 _horizontalInput = ctx.ReadValue<Vector2>();
+            
             _groundMovement.MouseX.performed += ctx =>
                 _mouseInput.x = ctx.ReadValue<float>();
+            
             _groundMovement.MouseY.performed += ctx =>
                 _mouseInput.y = ctx.ReadValue<float>();
+            
             _groundMovement.Jump.performed += playerMovement.OnJumpButton;
             _groundMovement.Interact.performed += pickUpController.OnInteractButton;
             _groundMovement.Throw.performed += pickUpController.OnThrowButton;

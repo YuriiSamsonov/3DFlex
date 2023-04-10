@@ -2,6 +2,7 @@ using System;
 using Game.Scripts.Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.PlayerSpace
 {
@@ -17,19 +18,24 @@ namespace Game.Scripts.PlayerSpace
         private LayerMask pickUpLayerMask;
         
         [field: SerializeField] 
-        private float pickUpDistance = 100f;
+        private float pickUpDistance = 2f;
         
         [field: SerializeField] 
         private float throwDistance;
-
-        private CupMono _objectInHand;
+        
+        private CupMono _cupMono;
+        
         private Rigidbody _objectInHandBody;
 
         private readonly RaycastHit[] _rayHits = new RaycastHit[1];
-
-        private bool _holdingItem;
-        private bool _foundCup;
         
+        private bool _foundCup;
+
+        private void Awake()
+        {
+            _cupMono = FindObjectOfType<CupMono>();
+        }
+
         private void Update()
         {
             _foundCup = TryCastForCup(cameraTransform.position, cameraTransform.forward);
@@ -37,42 +43,30 @@ namespace Game.Scripts.PlayerSpace
 
         public void OnInteractButton(InputAction.CallbackContext context)
         {
-            if (!_holdingItem)
+            if (!_cupMono.IsInHand)
             {
                 if (_foundCup)
                 {
-                    _objectInHand = _rayHits[0].collider.GetComponent<CupMono>();
-                    _objectInHand.Grab(hand);
-                    _objectInHand.InHandState(true);
-                    _objectInHandBody = _objectInHand.RBody;
-                    _holdingItem = true;
-                    return;
+                    _cupMono = _rayHits[0].collider.GetComponent<CupMono>();
+                    _cupMono.Grab(hand);
                 }
-            }
-            
-            if(_holdingItem)
-            {
-                _objectInHand.Drop();
-                _objectInHand.InHandState(false);
-                _holdingItem = false;
-            }
+            } 
+            else 
+                _cupMono.Drop();
         }
 
         public void OnThrowButton(InputAction.CallbackContext context)
         {
-            if (_holdingItem)
+            if (_cupMono.IsInHand)
             {
-                _objectInHand.Drop();
-                _objectInHand.InHandState(false);
+                _cupMono.Drop();
                 ThrowObjectInHand();
-                _objectInHandBody = null;
-                _holdingItem = false;
             }
         }
 
         private void ThrowObjectInHand()
         {
-            _objectInHandBody.velocity = cameraTransform.forward * (throwDistance * 10 * Time.deltaTime);
+            _cupMono.RBody.velocity = cameraTransform.forward * (throwDistance * 10 * Time.deltaTime);
         }
 
         private bool TryCastForCup(Vector3 startPos, Vector3 dir)

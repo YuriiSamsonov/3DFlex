@@ -1,8 +1,5 @@
-using System;
-using System.Linq;
-using Game.Scripts.ScriptableObjects;
+ using Game.Scripts.ScriptableObjects;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Game.Scripts.Objects
 {
@@ -19,9 +16,7 @@ namespace Game.Scripts.Objects
             cupRenderer = GetComponentsInChildren<Renderer>();
             
             for (int i = 0; i < cupRenderer.Length; i++)
-            {
                 cupRenderer[i].material.mainTexture = cupRuntimeData.cupTexture;
-            }
         }
     }
 }

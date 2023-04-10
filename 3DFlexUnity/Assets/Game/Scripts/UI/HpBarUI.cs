@@ -19,21 +19,39 @@ namespace Game.Scripts.UI
         [field: SerializeField] 
         private GameObject damageScreen;
 
-        private void Update()
+        private float _screenClock;
+
+        private bool _isScreenShown;
+
+        private void Start()
         {
-            text.text = "HP : " + playerMono.CurrentHp;
             playerMono.OnPlayerHitEvent += OnPlayerDamaged;
+            UpdateHpBar();
         }
 
         private void OnPlayerDamaged(EventArgs _)
         {
+            UpdateHpBar();
             damageScreen.SetActive(true);
-            StartCoroutine(HideDamageScreen());
+            _screenClock += .25f;
+            if (!_isScreenShown)
+                StartCoroutine(HideDamageScreen());
         }
 
-        private IEnumerator HideDamageScreen()
+        private void UpdateHpBar()
         {
-            yield return new WaitForSecondsRealtime(0.25f);
+            text.text = "HP : " + playerMono.CurrentHp;
+        }
+
+        private IEnumerator HideDamageScreen() // 47:40
+        {
+            var currentTime = 0.0f;
+            while (currentTime < _screenClock)
+            {
+                currentTime += Time.deltaTime;
+                yield return null;
+            }
+
             damageScreen.SetActive(false);
         }
     }

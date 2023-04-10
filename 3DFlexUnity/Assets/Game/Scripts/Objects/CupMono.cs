@@ -1,6 +1,7 @@
 using System.Collections;
 using Game.Scripts.Enemy.EnemyBodySpace;
 using Game.Scripts.ScriptableObjects;
+using Game.Scripts.Utils;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -13,9 +14,9 @@ namespace Game.Scripts.Objects
         public Rigidbody RBody => rBody;
         
         [field: SerializeField] 
-        private GameObject brokenCup;
+        private GameObject brokenCupPrefab;
         
-        [field: SerializeField] 
+        [field: SerializeField]
         private Transform spawnPoint;
         
         [field: SerializeField] 
@@ -30,10 +31,10 @@ namespace Game.Scripts.Objects
         private Vector3 _lastPos;
         private Quaternion _lastRot;
         private Transform _currentTransform;
+        
+        public bool IsInHand;
 
-        private bool _inHand;
-
-        private readonly float _lerpSpeed = 20f;
+        private const float LerpSpeed = 20f;
 
         private void Reset()
         {
@@ -45,47 +46,15 @@ namespace Game.Scripts.Objects
             _cupRenderer = GetComponent<Renderer>();
             _cupRenderer.material.mainTexture = cupRuntimeData.cupTexture;
         }
-
-        public void Grab(Transform handTransform)
-        {
-            _objInHandTransform = handTransform;
-            rBody.drag = 5f;
-            rBody.useGravity = false; 
-            rBody.constraints = RigidbodyConstraints.FreezeRotation;
-        }
-
-        public void Drop()
-        {
-            _objInHandTransform = null;
-            rBody.drag = 0f;
-            rBody.useGravity = true;
-            rBody.constraints = RigidbodyConstraints.None;
-        }
-
-        private void OnCollision()
-        {
-            var newBrokenCup = Instantiate(brokenCup);
-
-            var currentTransform = transform;
-            newBrokenCup.transform.position = currentTransform.position;
-            newBrokenCup.transform.rotation = currentTransform.rotation;
-                
-            rBody.velocity = new Vector3(0,0,0);
-            currentTransform.rotation = new Quaternion(0, 0, 0, 0);
-                
-            currentTransform.position = spawnPoint.position;
-            
-            StartCoroutine(DestroyTrash(newBrokenCup));
-        }
-
+        
         private void Update()
         {
-            if (_objInHandTransform != null)
+            if (IsInHand)
             {
                 var moveLerp = 
                     Vector3.Lerp(transform.position, 
                     _objInHandTransform.position, 
-                    Time.deltaTime * _lerpSpeed);
+                    Time.deltaTime * LerpSpeed);
                 
                 rBody.MovePosition(moveLerp);
             }
@@ -98,38 +67,47 @@ namespace Game.Scripts.Objects
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (rBody.velocity.magnitude > 2.5f && !_inHand)
+            if (!IsInHand)
             {
-                OnCollision();
-
-                switch (collision.collider.tag)
+                if (collision.transform.CompareTag(Variables.EnemyBodyPart) || rBody.velocity.magnitude > 2.5f)
                 {
-                    case "EnemyArm":
-                        collision.collider.GetComponent<EnemyArm>().OnHit(damage);
-                        break;
-                    case "EnemyHead":
-                        collision.collider.GetComponent<EnemyHead>().OnHit(damage);
-                        break;
-                    case "EnemyLeg":
-                        if (collision.collider.GetComponent<EnemyLeg>())
-                            collision.collider.GetComponent<EnemyLeg>().OnHit(damage);
-                        else
-                            collision.collider.GetComponentInParent<EnemyLeg>().OnHit(damage); //bug
-                        break;
-                    case "EnemyChest":
-                        collision.collider.GetComponent<EnemyChest>().OnHit(damage);
-                        break;
-                    case "EnemyPelvis":
-                        collision.collider.GetComponent<EnemyPelvis>().OnHit(damage);
-                        break;
+                    OnCollision();
+                    if(collision.collider.TryGetComponent<EnemyBodyPart>(out var part))
+                        part.OnHit(damage);
                 }
             }
         }
 
-        public void InHandState(bool state)
+        public void Grab(Transform handTransform)
         {
-            _inHand = state;
+            _objInHandTransform = handTransform;
+            rBody.drag = 5f;
+            rBody.useGravity = false; 
+            rBody.constraints = RigidbodyConstraints.FreezeRotation;
+            IsInHand = true;
         }
+
+        public void Drop()
+        {
+            _objInHandTransform = null;
+            rBody.drag = 0f;
+            rBody.useGravity = true;
+            rBody.constraints = RigidbodyConstraints.None;
+            IsInHand = false;
+        }
+
+        private void OnCollision()
+        {
+            var originalT = transform;
+            var newBrokenCup = Instantiate(brokenCupPrefab, originalT.position, originalT.rotation);
+            
+            rBody.velocity = Vector3.zero;
+            originalT.rotation = Quaternion.identity;
+            originalT.position = spawnPoint.position;
+            
+            StartCoroutine(DestroyTrash(newBrokenCup));
+        }
+
 
         private IEnumerator DestroyTrash(GameObject gameObjectToDestroy)
         {
