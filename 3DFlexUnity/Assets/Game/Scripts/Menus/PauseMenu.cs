@@ -6,6 +6,9 @@ namespace Game.Scripts.Menus
 {
     public class PauseMenu : MonoBehaviour
     {
+        /// <summary>
+        /// Load MainMenuScene and set normal time scale.
+        /// </summary>
         public void OnPauseMenuExitButton()
         {
             SceneManager.LoadScene(Variables.MainMenuSceneBuildIndex);

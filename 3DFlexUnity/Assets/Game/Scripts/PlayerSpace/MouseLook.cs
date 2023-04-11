@@ -6,9 +6,23 @@ namespace Game.Scripts.PlayerSpace
     {
         private float _mouseX, _mouseY;
         
-        [field: SerializeField] private float sensitivityX = 10f;
-        [field: SerializeField] private float sensitivityY = 10f;
-        [field: SerializeField] private Transform orientation;
+        /// <summary>
+        /// Horizontal mouse moving multiplier.
+        /// </summary>
+        [field: SerializeField, Min(1), Tooltip("Horizontal mouse moving multiplier.")] 
+        private float sensitivityX = 10f;
+        
+        /// <summary>
+        /// Vertical mouse moving multiplier.
+        /// </summary>
+        [field: SerializeField, Min(1), Tooltip("Vertical mouse moving multiplier.")] 
+        private float sensitivityY = 10f;
+        
+        /// <summary>
+        /// Player component responsible for rotation.
+        /// </summary>
+        [field: SerializeField, Tooltip("Player component responsible for rotation.")] 
+        private Transform orientation;
 
         private float _xRotation;
         private float _yRotation;

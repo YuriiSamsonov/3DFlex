@@ -1,19 +1,26 @@
-using System;
 using Game.Scripts.Enemy;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Game.Scripts.UI
 {
     public class ScoreUI : MonoBehaviour
     {
-        [field: SerializeField] 
+        /// <summary>
+        /// Enemy spawn manager.
+        /// </summary>
+        [field: SerializeField, Tooltip("Enemy spawn manager.")] 
         private SpawnManager spawnManager;
         
-        [field: SerializeField] 
+        /// <summary>
+        /// Game score text.
+        /// </summary>
+        [field: SerializeField, Tooltip("Game score text.")] 
         private Text scoreText;
 
+        /// <summary>
+        /// Set new value to the score bar.
+        /// </summary>
         public void UpdateScore()
         {
             scoreText.text = "Score : " + spawnManager.Score;

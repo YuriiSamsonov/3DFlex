@@ -15,6 +15,10 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
 
         private Action _enemyDeadCallback;
 
+        /// <summary>
+        /// Establish enemyDeadCallback connection.
+        /// </summary>
+        /// <param name="enemyDeadCallback"></param>
         public void Init(Action enemyDeadCallback)
         {
             _enemyDeadCallback = enemyDeadCallback;

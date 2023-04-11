@@ -5,16 +5,28 @@ namespace Game.Scripts.PlayerSpace
 {
     public class InputManager : MonoBehaviour
     {
-        [field: SerializeField]     
+        /// <summary>
+        /// PlayerMovement.cs reference.            ?????
+        /// </summary>
+        [field: SerializeField, Tooltip("PlayerMovement.cs reference.")]     
         private PlayerMovement playerMovement;
         
-        [field: SerializeField] 
+        /// <summary>
+        /// MouseLook.cs reference.
+        /// </summary>
+        [field: SerializeField, Tooltip("MouseLook.cs reference.")] 
         private MouseLook mouseLook;
         
-        [field: SerializeField] 
+        /// <summary>
+        /// PickUpController.cs reference.
+        /// </summary>
+        [field: SerializeField, Tooltip("PickUpController.cs reference.")] 
         private PickUpController pickUpController;
         
-        [field: SerializeField] 
+        /// <summary>
+        /// UIManager reference.
+        /// </summary>
+        [field: SerializeField, Tooltip("UIManager reference."), Space] 
         private UIManager uiManager;
 
         private PlayerControls _playerControls;

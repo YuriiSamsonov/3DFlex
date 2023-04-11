@@ -6,19 +6,6 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
     public abstract class EnemyBodyPart : MonoBehaviour
     {
         /// <summary>
-        /// Max HP of the enemy
-        /// </summary>
-        [field: SerializeField, Min(1), Tooltip("Max HP of the enemy")] 
-        protected int partMaxHealth;
-
-        /// <summary>
-        /// Renderer of enemy body part.
-        /// Using for visualize when damage taken.
-        /// </summary>
-        [field: SerializeField, Tooltip("Renderer of enemy body part")] 
-        protected Renderer bpRenderer;
-
-        /// <summary>
         /// Copy moving of the YellowDude body part moving
         /// </summary>
         [field: SerializeField, Tooltip("Copy moving of the YellowDude body part moving")] 
@@ -29,6 +16,19 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
         /// </summary>
         [field: SerializeField, Tooltip("Joints of the enemy body parts")] 
         protected ConfigurableJoint[] joints;
+        
+        /// <summary>
+        /// Renderer of enemy body part.
+        /// Using for visualize when damage taken.
+        /// </summary>
+        [field: SerializeField, Tooltip("Renderer of enemy body part")] 
+        protected Renderer bpRenderer;
+        
+        /// <summary>
+        /// Max HP of the enemy
+        /// </summary>
+        [field: SerializeField, Min(1), Tooltip("Max HP of the enemy")] 
+        protected int partMaxHealth;
 
         /// <summary>
         /// Activates when part comes off the body
@@ -43,7 +43,7 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
         private ConfigurableJoint mainJoint;
 
         private Color _defaultColor;
-
+        
         public bool isDead;
         public int currentHp;
         
@@ -86,7 +86,7 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
         }
 
         /// <summary>
-        /// Releases joint moving
+        /// Releases joint moving and disconnects from the enemy body.
         /// </summary>
         private void ReleaseJoints()
         {
@@ -96,18 +96,20 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
                 joints[i].slerpDrive = _jointSpring;
                 joints[i].xMotion = joints[i].yMotion = joints[i].zMotion = ConfigurableJointMotion.Free;
             }
-            
-            // joint.connectedBody = null;
-            // joint.slerpDrive = _jointSpring;
-            // joint.xMotion = joint.yMotion = joint.zMotion = ConfigurableJointMotion.Free;
         }
 
+        /// <summary>
+        /// Disable all enemyBodyParts.
+        /// </summary>
         private void DisabledPhysicalBodyPart()
         {
             for (int i = 0; i < enemyBodyParts.Length; i++)
                 enemyBodyParts[i].enabled = false;
         }
 
+        /// <summary>
+        /// Set mainJoint.slerpDrive to zero value.
+        /// </summary>
         protected void ReleaseMainJoint()
         {
             mainJoint.slerpDrive = _jointSpring;

@@ -13,9 +13,9 @@ namespace Game.Scripts.Enemy
         private PhysicMaterial normalFriction;
         
         /// <summary>
-        /// Material with zeno friction.
+        /// Material with zero friction.
         /// </summary>
-        [field: SerializeField, Tooltip("Material with zeno friction.")]
+        [field: SerializeField, Tooltip("Material with zero friction.")]
         private PhysicMaterial zeroFriction;
 
         private List<EnemyLeg> _leftColliders;

@@ -1,14 +1,20 @@
- using Game.Scripts.ScriptableObjects;
+using Game.Scripts.ScriptableObjects;
 using UnityEngine;
 
 namespace Game.Scripts.Objects
 {
     public class BrokenCup : MonoBehaviour
     {
-        [field: SerializeField] 
+        /// <summary>
+        /// Data to store cup texture in runtime.
+        /// </summary>
+        [field: SerializeField, Tooltip("Data to store cup texture in runtime.")] 
         private CupRuntimeData cupRuntimeData;
 
-        [field: SerializeField]
+        /// <summary>
+        /// Render array of cup parts.
+        /// </summary>
+        [field: SerializeField, Tooltip("Render array of cup parts.")]
         private Renderer[] cupRenderer;
         
         private void Start()

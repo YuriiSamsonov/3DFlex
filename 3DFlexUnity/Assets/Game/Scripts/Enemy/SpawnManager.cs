@@ -43,14 +43,14 @@ namespace Game.Scripts.Enemy
 
         private int _score;
         /// <summary>
-        /// 
+        /// Number depends on killed enemies count.
         /// </summary>
         public int Score => _score;
         
         private int _aliveEnemies;
 
         /// <summary>
-        /// 
+        /// Informs that new enemy wave spawned.
         /// </summary>
         public event Event<EventArgs> OnSpawnNewWave;
 

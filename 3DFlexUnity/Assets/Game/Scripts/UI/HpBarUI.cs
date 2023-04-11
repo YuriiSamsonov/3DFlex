@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Game.Scripts.PlayerSpace;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,13 +8,22 @@ namespace Game.Scripts.UI
 {
     public class HpBarUI : MonoBehaviour
     {
-        [field: SerializeField] 
+        /// <summary>
+        /// Player in the scene.
+        /// </summary>
+        [field: SerializeField, Tooltip("Player in the scene.")] 
         private PlayerMono playerMono;
         
-        [field: SerializeField] 
-        private Text text;
+        /// <summary>
+        /// Health bar text.
+        /// </summary>
+        [field: SerializeField, Tooltip("Health bar text.")] 
+        private Text hpBarText;
         
-        [field: SerializeField] 
+        /// <summary>
+        /// Red screen appears when player takes damage.
+        /// </summary>
+        [field: SerializeField, Tooltip("Red screen appears when player takes damage.")] 
         private GameObject damageScreen;
 
         private float _screenClock;
@@ -29,6 +36,10 @@ namespace Game.Scripts.UI
             UpdateHpBar();
         }
 
+        /// <summary>
+        /// Shows damage screen and update health bar when player takes damage.
+        /// </summary>
+        /// <param name="_"></param>
         private void OnPlayerDamaged(EventArgs _)
         {
             UpdateHpBar();
@@ -38,12 +49,19 @@ namespace Game.Scripts.UI
                 StartCoroutine(HideDamageScreen());
         }
 
+        /// <summary>
+        /// Set new value on the hp bar.
+        /// </summary>
         private void UpdateHpBar()
         {
-            text.text = "HP : " + playerMono.CurrentHp;
+            hpBarText.text = "HP : " + playerMono.CurrentHp;
         }
 
-        private IEnumerator HideDamageScreen() // 47:40
+        /// <summary>
+        /// Hides damageScreen if all timers stops.
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator HideDamageScreen()
         {
             var currentTime = 0.0f;
             while (currentTime < _screenClock)
