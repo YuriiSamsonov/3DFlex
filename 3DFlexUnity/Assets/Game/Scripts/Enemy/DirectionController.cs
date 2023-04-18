@@ -15,7 +15,7 @@ namespace Game.Scripts.Enemy
         /// Main joint of the enemy which keeps enemy in vertical position.
         /// </summary>
         [field: SerializeField, Tooltip("Main joint of the enemy which keeps enemy in vertical position.")]
-        private ConfigurableJoint joint;
+        private ConfigurableJoint mainJoint;
         
         /// <summary>
         /// Transform of the enemy pelvis.
@@ -42,7 +42,7 @@ namespace Game.Scripts.Enemy
             Vector3 toTargetXZ = new Vector3(toTarget.x, 0f, toTarget.z);
             Quaternion rotation = Quaternion.LookRotation(toTargetXZ);
 
-            joint.targetRotation = Quaternion.Inverse(rotation);
+            mainJoint.targetRotation = Quaternion.Inverse(rotation);
         }
     }
 }

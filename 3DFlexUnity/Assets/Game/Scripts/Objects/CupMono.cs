@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Game.Scripts.Enemy.EnemyBodySpace;
 using Game.Scripts.ScriptableObjects;
@@ -28,9 +29,9 @@ namespace Game.Scripts.Objects
         private Transform spawnPoint;
         
         /// <summary>
-        /// Cup damage.
+        /// Amount of damage the cup deals to the enemy.
         /// </summary>
-        [field: SerializeField, Min(10), Tooltip("Cup damage.")] 
+        [field: SerializeField, Min(1), Tooltip("Cup damage.")] 
         private int damage = 10;
         
         /// <summary>
@@ -45,6 +46,7 @@ namespace Game.Scripts.Objects
         private Quaternion _lastRot;
         private Transform _currentTransform;
         
+        [field: NonSerialized]
         public bool IsInHand;
 
         private const float LerpSpeed = 20f;
@@ -76,7 +78,7 @@ namespace Game.Scripts.Objects
             //Break cup if it to far from spawnPoint.
             if (Vector3.Distance(spawnPoint.position, transform.position) > 100)
             {
-                OnCollision();
+                BreakCup();
             }
         }
 
@@ -86,7 +88,7 @@ namespace Game.Scripts.Objects
             {
                 if (collision.transform.CompareTag(Variables.EnemyBodyPart) || rBody.velocity.magnitude > 2.5f)
                 {
-                    OnCollision();
+                    BreakCup();
                     if(collision.collider.TryGetComponent<EnemyBodyPart>(out var part))
                         part.OnHit(damage);
                 }
@@ -94,7 +96,7 @@ namespace Game.Scripts.Objects
         }
 
         /// <summary>
-        /// Change parameters of the cup's rigidbody so that it moves correctly.
+        /// Change parameters of the cup's rigidbody so that it follows the player cursor.
         /// </summary>
         /// <param name="handTransform"></param>
         public void Grab(Transform handTransform)
@@ -121,7 +123,7 @@ namespace Game.Scripts.Objects
         /// <summary>
         /// Spawns broken cup on the collision point and move original cup to spawn point.
         /// </summary>
-        private void OnCollision()
+        private void BreakCup()
         {
             var originalT = transform;
             var newBrokenCup = Instantiate(brokenCupPrefab, originalT.position, originalT.rotation);
@@ -130,18 +132,13 @@ namespace Game.Scripts.Objects
             originalT.rotation = Quaternion.identity;
             originalT.position = spawnPoint.position;
             
-            StartCoroutine(DestroyTrash(newBrokenCup));
+            StartCoroutine(DestroyBrokenCup(newBrokenCup));
         }
-
-        /// <summary>
-        /// Destroy broken cup after 30 seconds.
-        /// </summary>
-        /// <param name="gameObjectToDestroy"></param>
-        /// <returns></returns>
-        private IEnumerator DestroyTrash(GameObject gameObjectToDestroy)
+        
+        private IEnumerator DestroyBrokenCup(GameObject objectToDestroy)
         {
             yield return new WaitForSeconds(30);
-            Destroy(gameObjectToDestroy);
+            Destroy(objectToDestroy);
         }
     }
 }

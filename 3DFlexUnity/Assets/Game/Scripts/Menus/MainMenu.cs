@@ -14,15 +14,15 @@ namespace Game.Scripts.Menus
         private GameObject cup;
         
         /// <summary>
-        /// ??????????
+        /// Amount of times the object rotates around itself per minute.
         /// </summary>
-        [field: SerializeField, Tooltip("")] 
-        private float rotationSpeed = 0.02f;
+        [field: SerializeField, Min(1), Tooltip("Amount of times the object rotates around itself per minute.")] 
+        private float rotationsPerMinute = 300;
 
         /// <summary>
-        /// Array of cup textures.
+        /// All cup textures available for choosing.
         /// </summary>
-        [field: SerializeField, Tooltip("Array of cup textures.")] 
+        [field: SerializeField, Tooltip("All cup textures available for choosing.")] 
         private Texture2D[] cupTexture;
         
         /// <summary>
@@ -34,14 +34,18 @@ namespace Game.Scripts.Menus
         private Renderer _cupRenderer;
         
         private int _currentTexture;
-        private float _rotation;
+        private float _rotationsPerTick;
 
         private void Start()
         {
             cupRuntimeData.cupTexture = cupTexture[0];
             _cupRenderer = cup.GetComponent<Renderer>();
             ApplyTexture();
-            _rotation = rotationSpeed / Time.fixedDeltaTime; // difficult..............
+
+            //Calculate the total amount in degrees the cup will rotate per tick, to use later.
+            var rotationsPerSecond = rotationsPerMinute / 60;
+            var degreesPerSecond = 360 * rotationsPerSecond;
+            _rotationsPerTick = degreesPerSecond / (1 / Time.fixedDeltaTime);
 
             Time.timeScale = 1f;
         }
@@ -49,7 +53,7 @@ namespace Game.Scripts.Menus
         private void FixedUpdate()
         {
             //cup rotating
-            cup.transform.Rotate(0,_rotation,0, Space.Self);
+            cup.transform.Rotate(0,_rotationsPerTick,0, Space.Self);
         }
 
         /// <summary>
@@ -74,10 +78,8 @@ namespace Game.Scripts.Menus
         public void OnButtonNextTexture()
         {
             if (_currentTexture >= cupTexture.Length - 1)
-            {
                 _currentTexture = -1;
-            }
-            
+
             _currentTexture++;
             ApplyTexture();
         }
@@ -88,10 +90,8 @@ namespace Game.Scripts.Menus
         public void OnButtonPreviousTexture()
         {
             if (_currentTexture <= 0)
-            {
                 _currentTexture = cupTexture.Length;
-            }
-            
+
             _currentTexture--;
             ApplyTexture();
         }

@@ -6,6 +6,9 @@ using Random = UnityEngine.Random;
 
 namespace Game.Scripts.Enemy
 {
+    /// <summary>
+    /// Used for 
+    /// </summary>
     public class SpawnManager : MonoBehaviour
     {
         /// <summary>
@@ -21,18 +24,19 @@ namespace Game.Scripts.Enemy
         private Transform[] spawnPoints;
 
         /// <summary>
-        /// Animate friction Class.
+        /// Reference to the enemy movement animator.
         /// </summary>
         [field: SerializeField, Tooltip("Animate friction Class.")] 
-        private AnimateFriction friction;
+        private EnemyLegDriver enemyLegDriver;
         
         /// <summary>
         /// Reference body for copying animations.
         /// </summary>
         [field: SerializeField, Tooltip("Reference body for copying animations.")] 
-        private YellowDude yellowDude;
+        private AnimationTarget animationTarget;
 
         private EnemyHead[] _liveEnemies;
+        private int _aliveEnemies;
         
         private int _waveNumber;
         /// <summary>
@@ -43,12 +47,10 @@ namespace Game.Scripts.Enemy
 
         private int _score;
         /// <summary>
-        /// Number depends on killed enemies count.
+        /// Provides current score. The number is derived from amount of killed enemies.
         /// </summary>
         public int Score => _score;
         
-        private int _aliveEnemies;
-
         /// <summary>
         /// Informs that new enemy wave spawned.
         /// </summary>
@@ -69,8 +71,8 @@ namespace Game.Scripts.Enemy
             {
                 var enemy = Instantiate(enemyPrefab, spawnPoints[Random.Range(0, spawnPoints.Length)]);
                 enemy.EnemyHead.Init(EnemyDiedCallback);
-                friction.AddNewLegs(enemy.LeftLeg, enemy.RightLeg);
-                yellowDude.ApplyTargets(enemy);
+                enemyLegDriver.AddNewLegs(enemy.LeftLeg, enemy.RightLeg);
+                animationTarget.ApplyTargets(enemy);
                 
                 _aliveEnemies++;
             }
@@ -90,7 +92,7 @@ namespace Game.Scripts.Enemy
         }
 
         /// <summary>
-        /// If amount of alive enemies less then one - spawn new wave of enemies.
+        /// If there are zero alive enemies - spawn new wave of enemies.
         /// </summary>
         private void CheckNewWaveSpawnAvailability()
         {

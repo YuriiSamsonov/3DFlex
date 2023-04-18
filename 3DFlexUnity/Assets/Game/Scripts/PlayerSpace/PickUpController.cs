@@ -1,6 +1,7 @@
 using Game.Scripts.Objects;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.PlayerSpace
 {
@@ -19,10 +20,10 @@ namespace Game.Scripts.PlayerSpace
         private Transform hand;
         
         /// <summary>
-        /// Layer on which there are all pickupable objects.
+        /// Layer on which the cup is placed.
         /// </summary>
-        [field: SerializeField, Tooltip("Layer on which there are all pickupable objects.")] 
-        private LayerMask pickUpLayerMask;
+        [field: SerializeField, Tooltip("Layer on which the cup is placed.")] 
+        private LayerMask cupLayerMask;
         
         /// <summary>
         /// Distance at which the player can pick up an object.
@@ -41,8 +42,6 @@ namespace Game.Scripts.PlayerSpace
         private Rigidbody _objectInHandBody;
 
         private readonly RaycastHit[] _rayHits = new RaycastHit[1];
-        
-        private bool _foundCup;
 
         private void Awake()
         {
@@ -50,9 +49,9 @@ namespace Game.Scripts.PlayerSpace
         }
 
         /// <summary>
-        /// On interact button pressed finds grabable object.
-        /// If find it and player is not holding an object, moves to the hand position.
-        /// If player already holding an object, releases it.
+        /// On interact button pressed finds cup.
+        /// If find it and player is not holding an object, moves the cup to the hand position.
+        /// If the player is already holding the cup, releases it.
         /// </summary>
         /// <param name="context"></param>
         public void OnInteractButton(InputAction.CallbackContext context)
@@ -81,10 +80,7 @@ namespace Game.Scripts.PlayerSpace
                 ThrowObjectInHand();
             }
         }
-
-        /// <summary>
-        /// Throw object in hand.                 ????????????
-        /// </summary>
+        
         private void ThrowObjectInHand()
         {
             _cupMono.RBody.velocity = cameraTransform.forward * (throwDistance * 10 * Time.deltaTime);
@@ -95,7 +91,7 @@ namespace Game.Scripts.PlayerSpace
             var hits = Physics.RaycastNonAlloc(startPos, dir, 
                 _rayHits, 
                 pickUpDistance, 
-                pickUpLayerMask);
+                cupLayerMask);
 
             return hits > 0;
         }

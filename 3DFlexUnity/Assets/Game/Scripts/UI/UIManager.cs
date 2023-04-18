@@ -98,7 +98,7 @@ namespace Game.Scripts.UI
         private void OnPlayerDeadEventHandler(EventArgs _)
         {
             Time.timeScale = 0f;
-            CursorOnPause();
+            ToggleCursorVisibilityAndAvailability(true);
             OnPause(true, false);
             deathScreen.SetActive(true);
             damageScreen.SetActive(false);
@@ -106,7 +106,7 @@ namespace Game.Scripts.UI
         }
 
         /// <summary>
-        /// Shows wave UI for the short time.
+        /// Shows wave UI for a short time.
         /// </summary>
         /// <param name="_"></param>
         private void OnSpawnNewWaveEventHandler(EventArgs _)
@@ -125,13 +125,13 @@ namespace Game.Scripts.UI
             if (!_isPaused && !_isPlayerDead)
             {
                 Time.timeScale = 0f;
-                CursorOnPause();
+                ToggleCursorVisibilityAndAvailability(true);
                 OnPause(true, false);
             }
             else if (_isPaused)
             {
                 Time.timeScale = 1f;
-                SetCursorOnPlay();
+                ToggleCursorVisibilityAndAvailability(false);
                 OnPause(false, true);
             }
         }
@@ -154,24 +154,12 @@ namespace Game.Scripts.UI
             _isPaused = uiState;
         }
 
-        /// <summary>
-        /// Set cursor locked and invisible.
-        /// </summary>
-        private void SetCursorOnPlay()
+        private void ToggleCursorVisibilityAndAvailability(bool state)
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            Cursor.lockState = state ? CursorLockMode.None : CursorLockMode.Locked;
+            Cursor.visible = state;
         }
 
-        /// <summary>
-        /// Set cursor unlocked and visible.
-        /// </summary>
-        private void CursorOnPause()
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-        
         private IEnumerator HideWaveCountAfterDelay(float delay)
         {
             yield return new WaitForSeconds(delay);

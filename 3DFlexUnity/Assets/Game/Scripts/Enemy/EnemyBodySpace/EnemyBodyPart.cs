@@ -3,35 +3,39 @@ using UnityEngine;
 
 namespace Game.Scripts.Enemy.EnemyBodySpace
 {
+    /// <summary>
+    /// This class is used to basic control the behavior of the enemy body part.
+    /// Contains common parameters and methods of inheriting classes.
+    /// </summary>
     public abstract class EnemyBodyPart : MonoBehaviour
     {
         /// <summary>
-        /// Copy moving of the YellowDude body part moving
+        /// Copy movement of the target body part moving.
         /// </summary>
         [field: SerializeField, Tooltip("Copy moving of the YellowDude body part moving")] 
         protected PhysicalBodyPart[] enemyBodyParts;
 
         /// <summary>
-        /// Joints of the enemy body parts
+        /// Joints of the enemy body parts.
         /// </summary>
         [field: SerializeField, Tooltip("Joints of the enemy body parts")] 
         protected ConfigurableJoint[] joints;
         
         /// <summary>
         /// Renderer of enemy body part.
-        /// Using for visualize when damage taken.
+        /// Using for visualize taking damage.
         /// </summary>
         [field: SerializeField, Tooltip("Renderer of enemy body part")] 
         protected Renderer bpRenderer;
         
         /// <summary>
-        /// Max HP of the enemy
+        /// Max HP of the enemy.
         /// </summary>
         [field: SerializeField, Min(1), Tooltip("Max HP of the enemy")] 
         protected int partMaxHealth;
 
         /// <summary>
-        /// Activates when part comes off the body
+        /// Blood particle emitter. Activates when part comes off the body.
         /// </summary>
         [field: SerializeField, Tooltip("Activates when part comes off the body")] 
         protected GameObject bloodParent;
@@ -56,7 +60,7 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
         }
 
         /// <summary>
-        /// Notifies the body part that is was hit for certain amount fo damage.
+        /// Notifies the body part that it was hit for certain amount fo damage.
         /// Based on the inheriting part either only discards the part itself or all child body parts as well.
         /// </summary>
         /// <param name="damage"></param>
@@ -86,7 +90,7 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
         }
 
         /// <summary>
-        /// Releases joint moving and disconnects from the enemy body.
+        /// Releases joints movement and disconnects from the enemy body.
         /// </summary>
         private void ReleaseJoints()
         {

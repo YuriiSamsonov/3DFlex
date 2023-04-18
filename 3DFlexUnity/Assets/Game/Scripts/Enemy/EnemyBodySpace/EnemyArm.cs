@@ -1,17 +1,21 @@
-using Game.Scripts.PlayerSpace;
+ using Game.Scripts.PlayerSpace;
 using Game.Scripts.Utils;
 using UnityEngine;
 
 namespace Game.Scripts.Enemy.EnemyBodySpace
 {
+    /// <summary>
+    /// This class is used to control the behavior of the enemy arm body part.
+    /// Inherit EnemyBodyPart.cs.
+    /// </summary>
     public class EnemyArm : EnemyBodyPart
     {
         private PlayerMono _playerMono;
         
         /// <summary>
-        /// Trigger collider which trigger PlayerMono.OnPlayerTakeDamage()
+        /// Trigger collider that is used to trigger dealing damage to player.
         /// </summary>
-        [field: SerializeField, Tooltip("Collider which trigger PlayerMono.OnPlayerTakeDamage()")]
+        [field: SerializeField, Tooltip("Trigger collider that is used to trigger dealing damage to player.")]
         private BoxCollider damageCollider;
 
         protected override void Awake()

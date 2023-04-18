@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace Game.Scripts.Enemy.EnemyBodySpace
 {
+    /// <summary>
+    /// This class is used to control the behavior of the enemy head body part.
+    /// Inherit EnemyBodyPart.cs.
+    /// </summary>
     public class EnemyHead : EnemyBodyPart
     {
         /// <summary>
@@ -39,23 +43,21 @@ namespace Game.Scripts.Enemy.EnemyBodySpace
                 for (int i = 0; i < allParts.Length; i++)
                 {
                     const int criticalDamage = 10000;
-                    if (allParts[i].TryGetComponent<EnemyChest>(out var part))
-                        part.OnHit(criticalDamage);
+                    var part = allParts[i];
+                    if (part.TryGetComponent<EnemyChest>(out var enemyBodyPart))
+                        enemyBodyPart.OnHit(criticalDamage);
 
-                    StartCoroutine(HideTrashWithDelay(i, delay));
+                    StartCoroutine(HideBodyPartWithDelay(part, delay));
 
-                    allParts[i].tag = Variables.UntaggedTag;
+                    part.tag = Variables.UntaggedTag;
                 }
             }
         }
-
-        /// <summary>
-        /// Inactivate all enemy body parts
-        /// </summary>
-        private IEnumerator HideTrashWithDelay(int i, float delay)
+        
+        private IEnumerator HideBodyPartWithDelay(GameObject part, float delay)
         {
             yield return new WaitForSeconds(delay);
-            allParts[i].SetActive(false);
+            part.SetActive(false);
         }
     }
 }

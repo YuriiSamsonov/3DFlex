@@ -2,6 +2,10 @@ using UnityEngine;
 
 namespace Game.Scripts.Enemy.EnemyBodySpace
 {
+    /// <summary>
+    /// This class is used to control the behavior of the enemy chest body part.
+    /// Inherit EnemyBodyPart.cs.
+    /// </summary>
     public class EnemyChest : EnemyBodyPart
     {
         /// <summary>

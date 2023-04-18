@@ -6,27 +6,27 @@ namespace Game.Scripts.PlayerSpace
     public class InputManager : MonoBehaviour
     {
         /// <summary>
-        /// PlayerMovement.cs reference.            ?????
+        /// Reference to PlayerMovement component.
         /// </summary>
-        [field: SerializeField, Tooltip("PlayerMovement.cs reference.")]     
+        [field: SerializeField, Tooltip("Reference to PlayerMovement component.")]     
         private PlayerMovement playerMovement;
         
         /// <summary>
-        /// MouseLook.cs reference.
+        /// Reference to MouseLook component.
         /// </summary>
-        [field: SerializeField, Tooltip("MouseLook.cs reference.")] 
+        [field: SerializeField, Tooltip("Reference to MouseLook component.")] 
         private MouseLook mouseLook;
         
         /// <summary>
-        /// PickUpController.cs reference.
+        /// Reference to PickUpController component.
         /// </summary>
-        [field: SerializeField, Tooltip("PickUpController.cs reference.")] 
+        [field: SerializeField, Tooltip("Reference to PickUpController component.")] 
         private PickUpController pickUpController;
         
         /// <summary>
-        /// UIManager reference.
+        /// Reference to UIManager component.
         /// </summary>
-        [field: SerializeField, Tooltip("UIManager reference."), Space] 
+        [field: SerializeField, Tooltip("Reference to UIManager component."), Space] 
         private UIManager uiManager;
 
         private PlayerControls _playerControls;

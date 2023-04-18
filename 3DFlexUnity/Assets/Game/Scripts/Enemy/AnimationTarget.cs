@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game.Scripts.Enemy
 {
-    public class YellowDude : MonoBehaviour
+    public class AnimationTarget : MonoBehaviour
     {
         /// <summary>
         /// All parts containing PhysicalBodyPart.cs

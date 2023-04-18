@@ -10,8 +10,8 @@ namespace Game.Scripts.Enemy
         private Quaternion _startRotation;
 
         /// <summary>
-        /// Initialize PhysicalBodyPart components 
-         /// </summary>
+        /// Initialize PhysicalBodyPart components and finds the joint attached to the same game object.
+        /// </summary>
         /// <param name="target"></param>
         public void Init(Transform target)
         {

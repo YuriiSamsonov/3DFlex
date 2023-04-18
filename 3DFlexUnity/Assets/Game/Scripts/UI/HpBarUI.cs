@@ -1,5 +1,5 @@
 using System;
-using System.Collections;
+using System.Collections; 
 using Game.Scripts.PlayerSpace;
 using UnityEngine;
 using UnityEngine.UI;
@@ -50,7 +50,7 @@ namespace Game.Scripts.UI
         }
 
         /// <summary>
-        /// Set new value on the hp bar.
+        /// Set new text value on the hp bar.
         /// </summary>
         private void UpdateHpBar()
         {

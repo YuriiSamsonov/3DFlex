@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game.Scripts.Enemy
 {
-    public class AnimateFriction : MonoBehaviour
+    public class EnemyLegDriver : MonoBehaviour
     {
         /// <summary>
         /// Material with normal friction.
@@ -37,10 +37,9 @@ namespace Game.Scripts.Enemy
         }
 
         /// <summary>
-        /// Change friction to all legs.
-        /// Uses fot animate left leg.
+        /// Sets all of the left legs currently available as drivers by turning on their friction, and turning off the friction of right legs.
         /// </summary>
-        public void SetLeftFriction()
+        public void SetAllLeftLegsAsDriver()
         {
             for (int i = 0; i < _leftColliders.Count; i++)
             {
@@ -54,10 +53,9 @@ namespace Game.Scripts.Enemy
         }
 
         /// <summary>
-        /// Change friction to all legs.
-        /// Uses fot animate right leg.
+        /// Sets all of the right legs currently available as drivers by turning on their friction, and turning off the friction of left legs.
         /// </summary>
-        public void SetRightFriction()
+        public void SetAllRightLegsAsDriver()
         {
             for (int i = 0; i < _leftColliders.Count; i++)
             {

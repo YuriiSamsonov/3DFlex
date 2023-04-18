@@ -5,9 +5,9 @@ namespace Game.Scripts.PlayerSpace
     public class CameraHolder : MonoBehaviour
     {
         /// <summary>
-        /// Camera position.
+        /// Camera transform.
         /// </summary>
-        [field: SerializeField, Tooltip("Camera position.")] 
+        [field: SerializeField, Tooltip("Camera transform.")] 
         private Transform cameraTransform;
 
         private void LateUpdate()

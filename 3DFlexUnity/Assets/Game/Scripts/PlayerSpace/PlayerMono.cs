@@ -26,7 +26,7 @@ namespace Game.Scripts.PlayerSpace
         /// </summary>
         public int CurrentHp => _currentHp;
         
-        private bool _justHit;
+        private bool _wasHitThisFrame;
 
         /// <summary>
         /// Informs when player takes damage.
@@ -45,15 +45,14 @@ namespace Game.Scripts.PlayerSpace
 
         /// <summary>
         /// Deals damage to the player.
-        /// If player just taken damage stops ability to take damage and starts a countdown
-        /// to the next ability to take damage.
+        /// If the player has just taken damage provides the player with immunity frames.
         /// </summary>
         public void OnPlayerTakeDamage()
         {
             const int damageTaken = 1;
-            if (!_justHit)
+            if (!_wasHitThisFrame)
             {
-                _justHit = true;
+                _wasHitThisFrame = true;
                 _currentHp -= damageTaken;
                 damageSound.Play();
                 OnPlayerHitEvent(EventArgs.Empty);
@@ -67,7 +66,7 @@ namespace Game.Scripts.PlayerSpace
         private IEnumerator CoolDownHitWithSeconds()
         {
             yield return Variables.WaitForHalfASecond; 
-            _justHit = false;
+            _wasHitThisFrame = false;
         }
     }
 }

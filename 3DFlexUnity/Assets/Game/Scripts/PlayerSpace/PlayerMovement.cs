@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.PlayerSpace
 {
@@ -14,16 +15,16 @@ namespace Game.Scripts.PlayerSpace
         private Transform orientation;
        
         /// <summary>
-        /// Speed of the player movement.
+        /// Speed of the player's movement.
         /// </summary>
         [field: SerializeField, Min(1), Tooltip("Speed of the player movement.")] 
         private float moveSpeed;
         
         /// <summary>
-        /// Speed multiplayer on ground.
+        /// Drag multiplayer on the ground.
         /// </summary>
-        [field: SerializeField, Tooltip("Speed multiplayer on ground.")] 
-        private float groundMultiplier;
+        [field: SerializeField, Tooltip("Drag multiplayer on the ground.")] 
+        private float dragMultiplier;
 
 
         #endregion
@@ -37,12 +38,12 @@ namespace Game.Scripts.PlayerSpace
         private float jumpForce;
 
         /// <summary>
-        /// Speed multiplayer in air.
+        /// Speed multiplayer in the air.
         /// </summary>
         [field: SerializeField, Min(0), Tooltip("Moving multiplayer in air.")] 
         private float airMultiplier;
 
-        private bool _readyToJump = true;
+        private bool _isReadyToJump = true;
 
         #endregion
 
@@ -51,7 +52,8 @@ namespace Game.Scripts.PlayerSpace
         /// <summary>
         /// Start position of the ray.
         /// </summary>
-        [field: SerializeField, Tooltip("Start position of the ray."), Header("GroundCheck")] 
+        [Header("GroundCheck")] 
+        [field: SerializeField, Tooltip("Start position of the ray.")]
         private Transform rayStart;
 
         /// <summary>
@@ -90,16 +92,13 @@ namespace Game.Scripts.PlayerSpace
         private void Update()
         {
             SpeedControl();
-            
-             if (_isGrounded)
-                 _rBody.drag = groundMultiplier;
-             else
-                 _rBody.drag = 0f;
+
+            _rBody.drag = _isGrounded ? dragMultiplier : 0f;
         }
 
         /// <summary>
         /// Calculate moving direction and checks if the player is grounded.
-        /// Add force depend on is player grounded.
+        /// Add force depending on if the player is grounded.
         /// </summary>
         private void Movement()
         {
@@ -110,7 +109,7 @@ namespace Game.Scripts.PlayerSpace
             if (_isGrounded)
             {
                 _rBody.AddForce(_moveDirection.normalized * (moveSpeed * 10f), ForceMode.Force);
-                ResetJump();
+                _isReadyToJump = true;
             }
 
             else if (!_isGrounded)
@@ -119,7 +118,7 @@ namespace Game.Scripts.PlayerSpace
         }
 
         /// <summary>
-        /// Limits speed of the player if it try to move to fast.
+        /// Limits speed of the player if he tries to move to fast.
         /// </summary>
         private void SpeedControl()
         {
@@ -139,9 +138,9 @@ namespace Game.Scripts.PlayerSpace
         /// <param name="context"></param>
         public void OnJumpButton(InputAction.CallbackContext context)
         {
-            if (_readyToJump && _isGrounded)
+            if (_isReadyToJump && _isGrounded)
             {
-                _readyToJump = false;
+                _isReadyToJump = false;
                 
                 Jump();
             }
@@ -155,14 +154,6 @@ namespace Game.Scripts.PlayerSpace
             _rBody.velocity = new Vector3(_rBody.velocity.x, 0f, _rBody.velocity.z);
 
             _rBody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-        }
-        
-        /// <summary>
-        /// Set _readyToJump to true.
-        /// </summary>
-        private void ResetJump()
-        {
-            _readyToJump = true;
         }
 
         /// <summary>
