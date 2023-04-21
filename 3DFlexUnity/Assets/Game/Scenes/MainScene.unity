@@ -1753,8 +1753,8 @@ MonoBehaviour:
   - {fileID: 288963060}
   - {fileID: 769068173}
   - {fileID: 1896659565}
-  friction: {fileID: 1081745624}
-  yellowDude: {fileID: 1081745622}
+  enemyLegDriver: {fileID: 1081745624}
+  animationTarget: {fileID: 1081745622}
 --- !u!1 &1111229439
 GameObject:
   m_ObjectHideFlags: 0
@@ -3512,11 +3512,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2486161491315813586, guid: 860d5046eea9e804cb1d12fa5dc0fde7, type: 3}
       propertyPath: throwDistance
-      value: 150
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 2486161491315813586, guid: 860d5046eea9e804cb1d12fa5dc0fde7, type: 3}
       propertyPath: pickUpDistance
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486161491315813586, guid: 860d5046eea9e804cb1d12fa5dc0fde7, type: 3}
+      propertyPath: cupLayerMask.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2486161491315813674, guid: 860d5046eea9e804cb1d12fa5dc0fde7, type: 3}
       propertyPath: m_Layer
@@ -3537,6 +3541,14 @@ PrefabInstance:
     - target: {fileID: 5498311024139112995, guid: 860d5046eea9e804cb1d12fa5dc0fde7, type: 3}
       propertyPath: m_Name
       value: PlayerSpace
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361363611043989940, guid: 860d5046eea9e804cb1d12fa5dc0fde7, type: 3}
+      propertyPath: moveSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6361363611043989940, guid: 860d5046eea9e804cb1d12fa5dc0fde7, type: 3}
+      propertyPath: dragMultiplier
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6361363611043989940, guid: 860d5046eea9e804cb1d12fa5dc0fde7, type: 3}
       propertyPath: groundMultiplier

@@ -3,32 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b96d72fc-6d48-4654-9cfe-1d7adc3d116a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.3DFlexUnity/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Animation/PelvisAnimated.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Animation/PelvisAnimated.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Graphics/Animation/Walk animation.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Graphics/Animation/Walk animation.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Prefabs/Enemy/Enemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/AnimateFriction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyLegDriver.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/AnimateFriction.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyLegDriver.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/DirectionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/DirectionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyArm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyArm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyBodyPart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyBodyPart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyChest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyChest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyHead.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyHead.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyLeg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyLeg.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyPelvis.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/EnemyBodySpace/EnemyPelvis.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/PhysicalBodyPart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/PhysicalBodyPart.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/SpawnManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/SpawnManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/YellowDude.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/AnimationTarget.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/YellowDude.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Enemy/AnimationTarget.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Menus/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Menus/MainMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Objects/CupMono.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Objects/CupMono.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/CameraHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/CameraHolder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/InputManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/MouseLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/MouseLook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PickUpController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PickUpController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PlayerMono.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PlayerMono.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/PlayerSpace/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/ScriptableObjects/CupRuntimeData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/ScriptableObjects/CupRuntimeData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/HpBarUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/UI/HpBarUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/UI/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Scripts/Utils/Variables.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Scripts/Utils/Variables.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,22 +47,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\MNJ\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\MNJ\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\MNJ\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\MNJ\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\MNJ\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\MNJ\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\Unity\Files\Installs\2021.3.15f1\Editor\Unity.exe" />
@@ -176,6 +157,7 @@
       <workItem from="1681229295667" duration="815000" />
       <workItem from="1681476620479" duration="12205000" />
       <workItem from="1681811330047" duration="3289000" />
+      <workItem from="1681908044688" duration="2301000" />
     </task>
     <task id="LOCAL-00001" summary="Unity created">
       <created>1676675583076</created>

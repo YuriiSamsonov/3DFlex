@@ -26,7 +26,7 @@ namespace Game.Scripts.Enemy
         /// <summary>
         /// Reference to the enemy movement animator.
         /// </summary>
-        [field: SerializeField, Tooltip("Animate friction Class.")] 
+        [field: SerializeField, Tooltip("Reference to the enemy movement animator.")] 
         private EnemyLegDriver enemyLegDriver;
         
         /// <summary>

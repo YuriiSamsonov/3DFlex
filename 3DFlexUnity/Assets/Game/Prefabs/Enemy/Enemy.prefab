@@ -544,12 +544,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c475af46654e04a910a6f78f98462e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partMaxHealth: 10
-  bpRenderer: {fileID: 1216678004951472954}
   enemyBodyParts:
   - {fileID: 2367085524723131372}
   joints:
   - {fileID: 1216678005062016438}
+  bpRenderer: {fileID: 1216678004951472954}
+  partMaxHealth: 10
   bloodParent: {fileID: 6863032566734665381}
   mainJoint: {fileID: 2303237333580846218}
   isDead: 0
@@ -1413,12 +1413,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c3379980e24e0a9933e99c17cb37ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partMaxHealth: 1
-  bpRenderer: {fileID: 1216678005580180051}
   enemyBodyParts:
   - {fileID: 4659060478415112276}
   joints:
   - {fileID: 1216678006004620032}
+  bpRenderer: {fileID: 1216678005580180051}
+  partMaxHealth: 1
   bloodParent: {fileID: 6863032565567831880}
   mainJoint: {fileID: 0}
   isDead: 0
@@ -1707,12 +1707,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c3379980e24e0a9933e99c17cb37ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partMaxHealth: 1
-  bpRenderer: {fileID: 1216678005870094831}
   enemyBodyParts:
   - {fileID: 4659060480177188322}
   joints:
   - {fileID: 1216678005688286906}
+  bpRenderer: {fileID: 1216678005870094831}
+  partMaxHealth: 1
   bloodParent: {fileID: 4659060479533797223}
   mainJoint: {fileID: 0}
   isDead: 0
@@ -1816,8 +1816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409d1f8da8a244c0ab387309b1e48b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partMaxHealth: 1
-  bpRenderer: {fileID: 1216678005932767969}
   enemyBodyParts:
   - {fileID: 2367085524723131372}
   - {fileID: 4659060479522929062}
@@ -1834,6 +1832,8 @@ MonoBehaviour:
   - {fileID: 1216678005491788731}
   - {fileID: 1216678005688286906}
   - {fileID: 1216678006004620032}
+  bpRenderer: {fileID: 1216678005932767969}
+  partMaxHealth: 1
   bloodParent: {fileID: 6863032566750172321}
   mainJoint: {fileID: 0}
   isDead: 0
@@ -2400,8 +2400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b926706c0f1e491ab4aac3186cabc0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partMaxHealth: 1
-  bpRenderer: {fileID: 1216678006267387413}
   enemyBodyParts:
   - {fileID: 2367085524723131372}
   - {fileID: 4659060479522929062}
@@ -2411,6 +2409,8 @@ MonoBehaviour:
   - {fileID: 1216678005000596214}
   - {fileID: 1216678005062016438}
   - {fileID: 1216678006106280376}
+  bpRenderer: {fileID: 1216678006267387413}
+  partMaxHealth: 1
   bloodParent: {fileID: 6863032566744316655}
   mainJoint: {fileID: 2303237333580846218}
   isDead: 0
@@ -2831,8 +2831,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7f01e7dcb24668aff189b9b0d88038, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partMaxHealth: 1
-  bpRenderer: {fileID: 1216678006750611948}
   enemyBodyParts:
   - {fileID: 2367085524723131372}
   - {fileID: 4659060479522929062}
@@ -2847,6 +2845,8 @@ MonoBehaviour:
   - {fileID: 1216678005491788731}
   - {fileID: 1216678005688286906}
   - {fileID: 1216678006004620032}
+  bpRenderer: {fileID: 1216678006750611948}
+  partMaxHealth: 1
   bloodParent: {fileID: 6863032566744316655}
   mainJoint: {fileID: 0}
   isDead: 0
@@ -2966,12 +2966,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89c475af46654e04a910a6f78f98462e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partMaxHealth: 10
-  bpRenderer: {fileID: 1216678006870480642}
   enemyBodyParts:
   - {fileID: 4659060479522929062}
   joints:
   - {fileID: 1216678005000596214}
+  bpRenderer: {fileID: 1216678006870480642}
+  partMaxHealth: 10
   bloodParent: {fileID: 6863032566950348883}
   mainJoint: {fileID: 2303237333580846218}
   isDead: 0
@@ -3136,7 +3136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  joint: {fileID: 2303237333580846218}
+  mainJoint: {fileID: 2303237333580846218}
   pelvisTransform: {fileID: 1216678005491788730}
 --- !u!1001 &4659060478945187018
 PrefabInstance:

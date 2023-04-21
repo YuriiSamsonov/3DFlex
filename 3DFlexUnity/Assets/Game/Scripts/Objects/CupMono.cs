@@ -31,7 +31,7 @@ namespace Game.Scripts.Objects
         /// <summary>
         /// Amount of damage the cup deals to the enemy.
         /// </summary>
-        [field: SerializeField, Min(1), Tooltip("Cup damage.")] 
+        [field: SerializeField, Min(1), Tooltip("Amount of damage the cup deals to the enemy.")] 
         private int damage = 10;
         
         /// <summary>
@@ -102,7 +102,6 @@ namespace Game.Scripts.Objects
         public void Grab(Transform handTransform)
         {
             _objInHandTransform = handTransform;
-            rBody.drag = 5f;
             rBody.useGravity = false; 
             rBody.constraints = RigidbodyConstraints.FreezeRotation;
             IsInHand = true;
@@ -114,7 +113,6 @@ namespace Game.Scripts.Objects
         public void Drop()
         {
             _objInHandTransform = null;
-            rBody.drag = 0f;
             rBody.useGravity = true;
             rBody.constraints = RigidbodyConstraints.None;
             IsInHand = false;
